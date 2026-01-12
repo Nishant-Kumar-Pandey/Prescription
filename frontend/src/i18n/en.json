@@ -1,0 +1,55 @@
+{
+    "common": {
+        "appName": "RxExplain",
+        "home": "Home",
+        "doctors": "Doctors",
+        "help": "Help Center",
+        "profile": "Profile",
+        "login": "Login",
+        "signup": "Sign Up",
+        "logout": "Logout",
+        "loading": "Loading...",
+        "disclaimer": "This platform provides educational assistance only and does not replace professional medical consultation.",
+        "backToHome": "Back to Home"
+    },
+    "home": {
+        "title": "Understand Your Prescriptions",
+        "subtitle": "Upload your prescription and let RxExplain translate medical terms into clear, simple language.",
+        "uploadButton": "Upload Prescription",
+        "processing": "Analyzing Prescription...",
+        "resultsTitle": "Prescription Breakdown",
+        "voicePlayback": "Human-Friendly Voice Playback",
+        "selectVoice": "Select Voice",
+        "stop": "Stop"
+    },
+    "doctors": {
+        "title": "Find Trusted Doctors",
+        "searchPlaceholder": "Search by name or specialization...",
+        "filterRating": "Minimum Rating",
+        "filterLanguage": "Language",
+        "allLanguages": "All Languages",
+        "bookAppointment": "Book Appointment",
+        "experience": "years experience",
+        "rating": "Rating",
+        "languages": "Languages",
+        "noResults": "No doctors found matching your criteria."
+    },
+    "appointment": {
+        "title": "Book an Appointment",
+        "selectDateTime": "Select Date & Time",
+        "confirm": "Confirm Booking",
+        "success": "Appointment Confirmed!",
+        "successMessage": "Your appointment with {name} has been scheduled for {dateTime}."
+    },
+    "auth": {
+        "welcome": "Welcome Back",
+        "createAccount": "Create Account",
+        "email": "Email Address",
+        "password": "Password",
+        "name": "Full Name",
+        "alreadyHaveAccount": "Already have an account?",
+        "noAccount": "Don't have an account?",
+        "submitLogin": "Login to RxExplain",
+        "submitSignup": "Start for Free"
+    }
+}
