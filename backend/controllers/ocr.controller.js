@@ -1,6 +1,7 @@
 import Tesseract from 'tesseract.js';
 import path from 'path';
 import fs from 'fs';
+import { explainPrescription as aiExplainPrescription, prepareTTSText } from '../services/ai.service.js';
 
 /**
  * @desc    Analyze medical image (Prescription/License)
@@ -51,5 +52,48 @@ export const analyzeImage = async (req, res) => {
     } catch (error) {
         console.error("OCR Error:", error);
         res.status(500).json({ message: "Failed to analyze image", error: error.message });
+    }
+};
+
+/**
+ * @desc    Explain prescription using AI
+ * @route   POST /api/ocr/explain
+ * @access  Private
+ */
+export const explainPrescription = async (req, res) => {
+    try {
+        const { ocrText, language } = req.body;
+
+        // Validate input
+        if (!ocrText) {
+            return res.status(400).json({
+                message: "OCR text is required",
+                valid: false,
+                reason: "No text provided for analysis"
+            });
+        }
+
+        // Default to English if no language specified
+        const targetLanguage = language || 'English';
+
+        // Get AI explanation
+        const explanation = await aiExplainPrescription(ocrText, targetLanguage);
+
+        // Prepare TTS text (only explanation, general_advice, disclaimer)
+        const ttsText = prepareTTSText(explanation);
+
+        // Return full explanation + TTS text
+        res.json({
+            ...explanation,
+            ttsText  // Field for frontend to send to Google TTS
+        });
+
+    } catch (error) {
+        console.error("Prescription Explanation Error:", error);
+        res.status(500).json({
+            message: "Failed to explain prescription",
+            error: error.message,
+            valid: false
+        });
     }
 };
