@@ -1,6 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 
 // Route imports
@@ -13,9 +15,6 @@ import patientRoutes from './routes/patient.routes.js';
 import adminRoutes from './routes/admin.routes.js';
 import paymentRoutes from './routes/payment.routes.js';
 import ocrRoutes from './routes/ocr.routes.js';
-
-// Load environment variables
-dotenv.config();
 
 // Connect to Database
 connectDB();

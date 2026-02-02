@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://127.0.0.1:3000/api';
 
 // Create axios instance
 const api = axios.create({
@@ -70,6 +70,19 @@ export const userService = {
 
 export const patientService = {
     getAll: () => api.get('/patients'),
+};
+
+export const ocrService = {
+    analyze: (imageFile) => {
+        const formData = new FormData();
+        formData.append('medicalImage', imageFile);
+        return api.post('/ocr/analyze', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+    },
+    explain: (ocrText, language) => api.post('/ocr/explain', { ocrText, language }),
 };
 
 export default api;

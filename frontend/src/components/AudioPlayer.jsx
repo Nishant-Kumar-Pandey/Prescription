@@ -10,13 +10,25 @@ const AudioPlayer = ({ text }) => {
 
     const loadVoices = useCallback(() => {
         const availableVoices = window.speechSynthesis.getVoices();
+        if (availableVoices.length === 0) return;
+
         setVoices(availableVoices);
 
-        // Initial heuristic to find a good voice based on global language
-        const targetLang = language === "hi" ? "hi-IN" : "en-IN";
+        // Map languages to preferred locale strings
+        const localeMap = {
+            'hi': 'hi-IN',
+            'Hindi': 'hi-IN',
+            'en': 'en-IN',
+            'English': 'en-IN'
+        };
 
-        const bestVoice = availableVoices.find(v => v.lang.includes(targetLang)) ||
-            availableVoices.find(v => v.lang.includes(language)) ||
+        const targetLang = localeMap[language] || 'en-IN';
+
+        // Find the absolute best match: Google native voices usually sound better
+        const bestVoice =
+            availableVoices.find(v => v.lang === targetLang && v.name.includes('Google')) ||
+            availableVoices.find(v => v.lang === targetLang) ||
+            availableVoices.find(v => v.lang.startsWith(targetLang.split('-')[0])) ||
             availableVoices[0];
 
         if (bestVoice) setSelectedVoice(bestVoice.name);
@@ -26,7 +38,11 @@ const AudioPlayer = ({ text }) => {
         const s = window.speechSynthesis;
         setSynth(s);
 
-        s.onvoiceschanged = loadVoices;
+        // Chrome needs this event to populate voices
+        if (s.onvoiceschanged !== undefined) {
+            s.onvoiceschanged = loadVoices;
+        }
+
         loadVoices();
 
         return () => {
@@ -48,8 +64,8 @@ const AudioPlayer = ({ text }) => {
         } else {
             const utterance = new SpeechSynthesisUtterance(text);
 
-            // "Natural Voice" Settings (Calm & Accessible)
-            utterance.rate = 0.82; // Slightly slower than default for clarity
+            // "Patient-Optimized" Settings (Calm & Accessible)
+            utterance.rate = 0.85; // Optimized for elderly/low-literacy
             utterance.pitch = 1.0;
             utterance.volume = 1.0;
 
@@ -58,14 +74,27 @@ const AudioPlayer = ({ text }) => {
                 utterance.voice = voice;
                 utterance.lang = voice.lang;
             } else {
-                utterance.lang = language === "hi" ? "hi-IN" : "en-IN";
+                // Heuristic for selecting the best Hindi voice if not explicitly selected
+                const hindiVoice = voices.find(v => (v.lang === 'hi-IN' || v.lang.includes('hi')) && v.name.includes('Google'));
+                if (language === 'hi' && hindiVoice) {
+                    utterance.voice = hindiVoice;
+                    utterance.lang = 'hi-IN';
+                } else {
+                    const localeMap = {
+                        'hi': 'hi-IN',
+                        'Hindi': 'hi-IN',
+                        'en': 'en-IN',
+                        'English': 'en-IN'
+                    };
+                    utterance.lang = localeMap[language] || 'en-IN';
+                }
             }
 
+            utterance.onstart = () => setIsSpeaking(true);
             utterance.onend = () => setIsSpeaking(false);
             utterance.onerror = () => setIsSpeaking(false);
 
             synth.speak(utterance);
-            setIsSpeaking(true);
         }
     };
 

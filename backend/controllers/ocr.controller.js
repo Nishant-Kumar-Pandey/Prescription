@@ -73,18 +73,19 @@ export const explainPrescription = async (req, res) => {
             });
         }
 
-        // Default to English if no language specified
+        // Create target language variable
         const targetLanguage = language || 'English';
 
         // Get AI explanation
         const explanation = await aiExplainPrescription(ocrText, targetLanguage);
 
         // Prepare TTS text (only explanation, general_advice, disclaimer)
-        const ttsText = prepareTTSText(explanation);
+        const ttsText = prepareTTSText(explanation, targetLanguage);
 
         // Return full explanation + TTS text
         res.json({
             ...explanation,
+            language: targetLanguage,
             ttsText  // Field for frontend to send to Google TTS
         });
 

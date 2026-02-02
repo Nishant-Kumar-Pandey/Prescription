@@ -1,4 +1,4 @@
-import { authService, doctorService, appointmentService, prescriptionService } from './api.js';
+import { authService, doctorService, appointmentService, prescriptionService, ocrService } from './api.js';
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -30,30 +30,68 @@ export const mockApi = {
     },
 
     explainPrescription: async (image, language) => {
-        // Feature not yet implemented in backend, keeping mock logic for UI stability
-        await delay(2000);
-        const explanations = {
-            English: "This prescription is for Amoxicillin 500mg. Take 1 capsule three times a day for 7 days. It is an antibiotic used to treat bacterial infections. Complete the full course even if you feel better.",
-            Spanish: "Esta receta es de Amoxicilina 500mg. Tomar 1 cápsula tres veces al día durante 7 días. Es un antibiótico para infecciones bacterianas. Complete todo el tratamiento.",
-            Hindi: "यह पर्चा अमोक्सिसिलिन 500mg के लिए है। 7 दिनों तक दिन में तीन बार 1 कैप्सूल लें। यह एक एंटीबायोटिक है। बेहतर महसूस होने पर भी कोर्स पूरा करें।"
-        };
-
-        const explanationText = explanations[language] || explanations['English'];
-
-        // Save to Backend
+        let analyzeData = null;
         try {
-            await prescriptionService.create({ content: explanationText });
-        } catch (error) {
-            console.error("Failed to save prescription:", error);
-        }
+            // 1. Analyze image to get OCR text (This is what works on Profile page)
+            const analyzeRes = await ocrService.analyze(image);
+            analyzeData = analyzeRes.data.analysis;
+            const ocrText = analyzeData.rawText;
 
-        return {
-            success: true,
-            explanation: explanationText,
-            medication: "Amoxicillin",
-            dosage: "500mg, 1 Capsule 3x Daily",
-            duration: "7 Days"
-        };
+            if (!ocrText) {
+                throw new Error("Could not extract text from image");
+            }
+
+            // 2. Try to get AI explanation
+            try {
+                const explainRes = await ocrService.explain(ocrText, language);
+                const data = explainRes.data;
+
+                // 3. Save to History
+                try {
+                    await prescriptionService.create({
+                        content: data.ttsText || ocrText,
+                        medicines: data.medicines || []
+                    });
+                } catch (saveError) {
+                    console.error("Failed to save prescription to history:", saveError);
+                }
+
+                return {
+                    ...data,
+                    ...analyzeData,
+                    success: data.valid
+                };
+            } catch (aiError) {
+                console.warn("AI explanation failed, falling back to raw OCR results:", aiError);
+
+                // Construct a fallback result using raw OCR data (matches Profile page experience)
+                const fallbackData = {
+                    valid: analyzeData.isPrescription,
+                    medicines: analyzeData.detectedKeywords.map(k => ({ name: k, explanation: "AI explanation unavailable" })),
+                    general_advice: "AI analysis is currently experiencing heavy traffic. Here is the raw extracted information.",
+                    disclaimer: "Please consult a doctor. AI explanation failed.",
+                    ttsText: `OCR extracted text: ${ocrText.substring(0, 500)}`,
+                    ...analyzeData,
+                    aiFailed: true
+                };
+
+                // Save fallback to history too
+                try {
+                    await prescriptionService.create({
+                        content: ocrText,
+                        medicines: []
+                    });
+                } catch (sErr) { }
+
+                return {
+                    ...fallbackData,
+                    success: analyzeData.isPrescription
+                };
+            }
+        } catch (error) {
+            console.error("Prescription analysis error:", error);
+            throw new Error(error.response?.data?.message || error.message || 'Prescription analysis failed');
+        }
     },
 
     getHistory: async () => {
@@ -71,7 +109,7 @@ export const mockApi = {
         } catch (error) {
             console.error(error);
         }
-        
+
         return [
             { id: 1, date: '2023-12-25', medication: 'Amoxicillin', status: 'Completed' },
             { id: 2, date: '2023-12-10', medication: 'Paracetamol', status: 'Completed' }
@@ -92,7 +130,7 @@ export const mockApi = {
         } catch (error) {
             console.error(error);
         }
-        
+
         return [
             {
                 id: 'd1',
@@ -131,7 +169,7 @@ export const mockApi = {
         try {
             // Parse dateTime string to date and time for backend
             let date = dateTime;
-            let time = "09:00"; 
+            let time = "09:00";
 
             if (dateTime.includes('T')) {
                 [date, time] = dateTime.split('T');
