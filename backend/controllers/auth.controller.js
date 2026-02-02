@@ -12,7 +12,8 @@ export const signup = async (req, res) => {
         const {
             name, email, password, role, preferredLanguage,
             specialization, experience, licenseNumber,
-            adminKey, verificationDocument, consultationFee
+            adminKey, verificationDocument, consultationFee,
+            address, city, state, country, postalCode
         } = req.body;
 
         // Basic validation
@@ -47,7 +48,12 @@ export const signup = async (req, res) => {
             password: hashedPassword,
             role: role || 'patient',
             preferredLanguage: preferredLanguage || 'en',
-            status: 'active'
+            status: 'active',
+            address: address || '',
+            city: city || '',
+            state: state || '',
+            country: country || '',
+            postalCode: postalCode || ''
         });
 
         // Create Doctor Profile if role is doctor
@@ -64,7 +70,12 @@ export const signup = async (req, res) => {
                 image: '',
                 consultationFee: consultationFee || 500,
                 maxPatientsPerDay: 10,
-                verificationDocument: verificationDocument || ''
+                verificationDocument: verificationDocument || '',
+                address: address || '',
+                city: city || '',
+                state: state || '',
+                country: country || '',
+                postalCode: postalCode || ''
             });
         }
 
@@ -79,7 +90,12 @@ export const signup = async (req, res) => {
                 email: user.email,
                 gender: 'Not Specified',
                 age: 0,
-                status: 'active'
+                status: 'active',
+                address: address || '',
+                city: city || '',
+                state: state || '',
+                country: country || '',
+                postal_code: postalCode || ''
             });
         }
 

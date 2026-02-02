@@ -18,7 +18,12 @@ const Signup = () => {
     experience: '',
     licenseNumber: '',
     adminKey: '',
-    preferredLanguage: 'en'
+    preferredLanguage: 'en',
+    address: '',
+    city: '',
+    state: '',
+    country: '',
+    postalCode: ''
   });
 
   const [loading, setLoading] = useState(false);
@@ -112,6 +117,67 @@ const Signup = () => {
                 <option value="doctor">Doctor</option>
                 <option value="admin">Administrator</option>
               </select>
+            </div>
+
+            {/* Location Fields */}
+            <div className="space-y-2 md:col-span-2">
+              <label className="text-sm font-bold text-slate-700 ml-1">Street Address</label>
+              <input
+                name="address"
+                type="text"
+                value={formData.address}
+                onChange={handleChange}
+                className="w-full bg-white/70 border border-slate-200 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white transition-all shadow-sm"
+                placeholder="123 Medical St"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700 ml-1">City</label>
+              <input
+                name="city"
+                type="text"
+                value={formData.city}
+                onChange={handleChange}
+                className="w-full bg-white/70 border border-slate-200 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white transition-all shadow-sm"
+                placeholder="New York"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700 ml-1">State / Province</label>
+              <input
+                name="state"
+                type="text"
+                value={formData.state}
+                onChange={handleChange}
+                className="w-full bg-white/70 border border-slate-200 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white transition-all shadow-sm"
+                placeholder="NY"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700 ml-1">Country</label>
+              <input
+                name="country"
+                type="text"
+                value={formData.country}
+                onChange={handleChange}
+                className="w-full bg-white/70 border border-slate-200 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white transition-all shadow-sm"
+                placeholder="United States"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-bold text-slate-700 ml-1">Postal Code</label>
+              <input
+                name="postalCode"
+                type="text"
+                value={formData.postalCode}
+                onChange={handleChange}
+                className="w-full bg-white/70 border border-slate-200 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white transition-all shadow-sm"
+                placeholder="10001"
+              />
             </div>
           </div>
 

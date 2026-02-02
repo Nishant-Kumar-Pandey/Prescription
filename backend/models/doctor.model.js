@@ -13,6 +13,11 @@ const doctorSchema = new mongoose.Schema({
     consultationFee: { type: Number, default: 500 },
     maxPatientsPerDay: { type: Number, default: 10 },
     verificationDocument: { type: String, default: '' },
+    address: { type: String, default: '' },
+    city: { type: String, default: '' },
+    state: { type: String, default: '' },
+    country: { type: String, default: '' },
+    postalCode: { type: String, default: '' }
 }, { timestamps: true });
 
 const Doctor = mongoose.model("Doctor", doctorSchema);

@@ -27,6 +27,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static("uploads"));
 
+// Request Logging Middleware
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+});
+
 // API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/doctors", doctorRoutes);
@@ -38,9 +44,24 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/ocr", ocrRoutes);
 
-// Root route
 app.get("/", (req, res) => {
     res.json({ message: "Welcome to Prescription AI API" });
+});
+
+// Diagnostic route
+app.get("/test-db", async (req, res) => {
+    try {
+        const state = mongoose.connection.readyState;
+        const states = ["disconnected", "connected", "connecting", "disconnecting"];
+        res.json({
+            status: "success",
+            message: "DB Status check",
+            readyState: states[state],
+            dbName: mongoose.connection.name
+        });
+    } catch (error) {
+        res.status(500).json({ status: "error", message: error.message });
+    }
 });
 
 // 404 Handler
@@ -55,4 +76,10 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Export the app for Vercel serverless functions
+export default app;
+
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
