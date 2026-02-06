@@ -80,4 +80,6 @@ const PORT = process.env.PORT || 3000;
 // Export the app for Vercel serverless functions
 export default app;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}

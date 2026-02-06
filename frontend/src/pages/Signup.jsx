@@ -43,7 +43,11 @@ const Signup = () => {
       alert("Account created successfully! Please login.");
       navigate('/login');
     } catch (err) {
-      setError(err.response?.data?.message || "Signup failed. Please check your data.");
+      if (!err.response) {
+        setError("Cannot connect to server. Please ensure backend is running.");
+      } else {
+        setError(err.response.data?.message || "Signup failed. Please check your data.");
+      }
     } finally {
       setLoading(false);
     }

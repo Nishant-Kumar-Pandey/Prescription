@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.MODE === 'production'
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.MODE === 'production'
     ? '/api'
-    : 'http://127.0.0.1:3000/api';
+    : 'http://127.0.0.1:3000/api');
 
 // Create axios instance
 const api = axios.create({
