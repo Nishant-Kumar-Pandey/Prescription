@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@context/AuthContext';
 import { useLanguage } from '@context/LanguageContext';
-import api from '@services/api';
+import api, { IMAGE_BASE_URL } from '@services/api';
 import Loader from '@components/Loader';
 
 const Profile = () => {
@@ -81,7 +81,7 @@ const Profile = () => {
           <div className="w-28 h-28 bg-gradient-to-br from-medical-primary to-medical-secondary text-white rounded-3xl flex items-center justify-center text-4xl font-extrabold shadow-lg overflow-hidden border-2 border-white">
             {user?.image ? (
               <img
-                src={user.image.startsWith('http') ? user.image : `http://localhost:3000${user.image}`}
+                src={user.image.startsWith('http') ? user.image : `${IMAGE_BASE_URL}${user.image}`}
                 alt="Profile"
                 className="w-full h-full object-cover"
                 onError={(e) => e.target.src = 'https://via.placeholder.com/150'}

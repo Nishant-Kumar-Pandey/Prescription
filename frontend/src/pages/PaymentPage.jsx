@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import api from '@services/api';
+import api, { IMAGE_BASE_URL } from '@services/api';
 import { useAuth } from '@context/AuthContext';
 
 const PaymentPage = () => {
@@ -192,7 +192,7 @@ const PaymentPage = () => {
                             <div className="flex gap-4 items-center p-4 bg-white/5 rounded-2xl border border-white/5">
                                 <div className="w-16 h-16 rounded-2xl overflow-hidden border border-white/10 shrink-0">
                                     <img
-                                        src={appointment.doctorId?.image?.startsWith('http') ? appointment.doctorId?.image : `http://localhost:3000${appointment.doctorId?.image || ''}`}
+                                        src={appointment.doctorId?.image?.startsWith('http') ? appointment.doctorId?.image : `${IMAGE_BASE_URL}${appointment.doctorId?.image || ''}`}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>

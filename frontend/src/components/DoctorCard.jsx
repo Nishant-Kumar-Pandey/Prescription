@@ -1,4 +1,5 @@
 import React from 'react';
+import { IMAGE_BASE_URL } from '@services/api';
 import { useLanguage } from '@context/LanguageContext';
 
 const DoctorCard = ({ doctor, onBook }) => {
@@ -16,7 +17,7 @@ const DoctorCard = ({ doctor, onBook }) => {
                     <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28">
                         <div className="w-full h-full rounded-3xl overflow-hidden border-2 border-white shadow-md">
                             <img
-                                src={doctor.image?.startsWith('http') ? doctor.image : `http://localhost:3000${doctor.image || ''}`}
+                                src={doctor.image?.startsWith('http') ? doctor.image : `${IMAGE_BASE_URL}${doctor.image || ''}`}
                                 alt={doctor.name}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />

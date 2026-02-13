@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { IMAGE_BASE_URL } from '@services/api';
 import { useLanguage } from '@context/LanguageContext';
 
 const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
@@ -36,7 +37,7 @@ const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
                         <div className="flex gap-4">
                             <div className="w-16 h-16 rounded-[1.25rem] overflow-hidden border-2 border-white shadow-lg">
                                 <img
-                                    src={doctor.image?.startsWith('http') ? doctor.image : `http://localhost:3000${doctor.image || ''}`}
+                                    src={doctor.image?.startsWith('http') ? doctor.image : `${IMAGE_BASE_URL}${doctor.image || ''}`}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -77,8 +78,8 @@ const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
                                         key={time}
                                         onClick={() => setSelectedTime(time)}
                                         className={`group relative overflow-hidden py-4 rounded-2xl border-2 transition-all duration-300 active:scale-90 ${selectedTime === time
-                                                ? 'bg-slate-900 border-slate-900 text-white shadow-2xl'
-                                                : 'bg-white/50 border-white text-slate-600 hover:border-medical-primary/50'
+                                            ? 'bg-slate-900 border-slate-900 text-white shadow-2xl'
+                                            : 'bg-white/50 border-white text-slate-600 hover:border-medical-primary/50'
                                             }`}
                                     >
                                         <span className="relative z-10 text-[11px] font-black">{time}</span>
