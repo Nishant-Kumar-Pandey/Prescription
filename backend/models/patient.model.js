@@ -23,6 +23,7 @@ const patientSchema = new mongoose.Schema({
     primary_care_physician: String,
     last_visit_date: String,
     next_appointment_date: String,
+    status: { type: String, enum: ['active', 'banned'], default: 'active' },
 }, {
     timestamps: true
 });
