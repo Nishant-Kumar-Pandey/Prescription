@@ -9,28 +9,34 @@ import { explainPrescription as aiExplainPrescription, prepareTTSText } from '..
  * @access  Private
  */
 export const analyzeImage = async (req, res) => {
+    let worker;
     try {
         if (!req.file) {
             return res.status(400).json({ message: "No image file uploaded" });
         }
 
         const imagePath = req.file.path;
+        console.log("Analyzing image at:", imagePath);
 
-        // Perform OCR
-        const result = await Tesseract.recognize(
-            imagePath,
-            'eng',
-            { logger: m => console.log(m) }
-        );
+        // Initialize Tesseract worker with cache in /tmp for cloud environments
+        worker = await Tesseract.createWorker('eng', 1, {
+            langPath: fs.existsSync(path.join(process.cwd(), 'eng.traineddata')) ? process.cwd() : '/tmp',
+            cachePath: '/tmp',
+            logger: m => console.log(m)
+        });
 
-        const text = result.data.text;
+        const { data: { text, confidence } } = await worker.recognize(imagePath);
+        
+        // Clean up worker
+        await worker.terminate();
+        worker = null;
 
         // Simple parsing logic (can be expanded)
         const analysis = {
             rawText: text,
             detectedKeywords: [],
             isPrescription: text.toLowerCase().includes('rx') || text.toLowerCase().includes('prescription'),
-            confidence: result.data.confidence
+            confidence: confidence
         };
 
         // Example keyword detection
@@ -51,7 +57,19 @@ export const analyzeImage = async (req, res) => {
 
     } catch (error) {
         console.error("OCR Error:", error);
-        res.status(500).json({ message: "Failed to analyze image", error: error.message });
+        // Clean up worker if it exists
+        if (worker) {
+            try { await worker.terminate(); } catch (e) {}
+        }
+        // Clean up file if it exists to avoid filling up disk on 500s
+        if (req.file && req.file.path && fs.existsSync(req.file.path)) {
+            try { fs.unlinkSync(req.file.path); } catch (e) {}
+        }
+        res.status(500).json({ 
+            message: "Failed to analyze image", 
+            error: error.message,
+            stack: process.env.NODE_ENV === 'development' ? error.stack : undefined 
+        });
     }
 };
 

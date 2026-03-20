@@ -126,15 +126,24 @@ TARGET LANGUAGE: ${language}`;
 
     console.log("AI Raw Response:", text);
 
-    // Extract JSON from response (handle markdown code blocks if present)
-    let jsonText = text.trim();
-    if (jsonText.startsWith('```json')) {
-      jsonText = jsonText.replace(/```json\n?/g, '').replace(/```\n?/g, '');
-    } else if (jsonText.startsWith('```')) {
-      jsonText = jsonText.replace(/```\n?/g, '');
+    let explanation;
+    try {
+      let jsonText = text.trim();
+      const startIdx = jsonText.indexOf('{');
+      const endIdx = jsonText.lastIndexOf('}');
+      if (startIdx !== -1 && endIdx !== -1) {
+        jsonText = jsonText.substring(startIdx, endIdx + 1);
+      }
+      jsonText = jsonText.replace(/```json/g, '').replace(/```/g, '').trim();
+      explanation = JSON.parse(jsonText);
+    } catch (parseError) {
+      console.error("Failed to parse AI response as JSON:", parseError);
+      explanation = {
+        valid: false,
+        reason: "The AI analysis returned an invalid response format. Please try again.",
+        rawText: ocrText
+      };
     }
-
-    const explanation = JSON.parse(jsonText);
     return { ...explanation, rawText: ocrText }; // Added rawText for frontend visibility
 
   } catch (error) {

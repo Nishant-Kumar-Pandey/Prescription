@@ -55,7 +55,7 @@ const DoctorCard = ({ doctor, onBook }) => {
                     {/* Right Side Action Section */}
                     <div className="flex flex-row sm:flex-col items-center justify-between sm:justify-center gap-4 w-full sm:w-auto sm:pl-6 sm:border-l border-slate-100/50">
                         <div className="text-center sm:text-right">
-                            <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none">Consultation</p>
+                            <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none">{t('doctors.fee')}</p>
                             <p className="text-xl font-black text-slate-800 tracking-tighter">₹{doctor.consultationFee || 500}</p>
                         </div>
 
@@ -65,7 +65,7 @@ const DoctorCard = ({ doctor, onBook }) => {
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-medical-primary to-medical-secondary opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                             <span className="relative text-white font-black text-[10px] uppercase tracking-widest whitespace-nowrap">
-                                Book Now
+                                {t('doctors.bookNow')}
                             </span>
                         </button>
                     </div>

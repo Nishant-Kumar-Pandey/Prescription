@@ -20,7 +20,18 @@
         "resultsTitle": "Prescription Breakdown",
         "voicePlayback": "Human-Friendly Voice Playback",
         "selectVoice": "Select Voice",
-        "stop": "Stop"
+        "stop": "Stop",
+        "howItWorks": "How it works",
+        "step1Title": "Upload Image",
+        "step1Desc": "Upload a clear image of your prescription.",
+        "step2Title": "AI Analysis",
+        "step2Desc": "AI analyzes the medical terms and handwriting.",
+        "step3Title": "Simple Explanation",
+        "step3Desc": "Get an easy-to-understand explanation.",
+        "step4Title": "Voice Playback",
+        "step4Desc": "Listen to the explanation in your language.",
+        "historyTitle": "Prescription History",
+        "noHistory": "Your analyzed prescriptions will appear here."
     },
     "doctors": {
         "title": "Find Trusted Doctors",
@@ -32,7 +43,21 @@
         "experience": "years experience",
         "rating": "Rating",
         "languages": "Languages",
-        "noResults": "No doctors found matching your criteria."
+        "noResults": "No doctors found matching your criteria.",
+        "bookNow": "Book Now",
+        "fee": "Consultation Fee",
+        "specialization": "Specialization"
+    },
+    "results": {
+        "title": "Analysis Results",
+        "incomplete": "Analysis Incomplete",
+        "medicinesDetected": "Medicines Detected",
+        "simpleExplanation": "Simple Explanation",
+        "listen": "Listen to Explanation",
+        "precautions": "Precautions & Advice",
+        "disclaimerTitle": "Medical Disclaimer",
+        "evidence": "Technical Evidence (OCR)",
+        "noMedicines": "No specific medicines were clearly identified."
     },
     "appointment": {
         "title": "Book an Appointment",

@@ -58,45 +58,57 @@ export const signup = async (req, res) => {
 
         // Create Doctor Profile if role is doctor
         if (role === 'doctor') {
-            await Doctor.create({
-                userId: user._id,
-                name: user.name,
-                specialization,
-                experience,
-                licenseNumber,
-                rating: 0,
-                languages: [preferredLanguage === 'hi' ? 'Hindi' : 'English'],
-                availability: ['Mon-Fri 9AM-5PM'],
-                image: '',
-                consultationFee: consultationFee || 500,
-                maxPatientsPerDay: 10,
-                verificationDocument: verificationDocument || '',
-                address: address || '',
-                city: city || '',
-                state: state || '',
-                country: country || '',
-                postalCode: postalCode || ''
-            });
+            try {
+                await Doctor.create({
+                    userId: user._id,
+                    name: user.name,
+                    specialization,
+                    experience,
+                    licenseNumber,
+                    rating: 0,
+                    languages: [preferredLanguage === 'hi' ? 'Hindi' : 'English'],
+                    availability: ['Mon-Fri 9AM-5PM'],
+                    image: '',
+                    consultationFee: consultationFee || 500,
+                    maxPatientsPerDay: 10,
+                    verificationDocument: verificationDocument || '',
+                    address: address || '',
+                    city: city || '',
+                    state: state || '',
+                    country: country || '',
+                    postalCode: postalCode || ''
+                });
+            } catch (profileError) {
+                // Rollback User creation if Profile creation fails
+                await User.findByIdAndDelete(user._id);
+                throw profileError;
+            }
         }
 
         // Create Patient Profile if role is patient
         if (role === 'patient' || !role) {
-            const [first_name, ...last_name_parts] = name.split(' ');
-            const last_name = last_name_parts.join(' ') || 'User';
-            await Patient.create({
-                userId: user._id,
-                first_name,
-                last_name,
-                email: user.email,
-                gender: 'Not Specified',
-                age: 0,
-                status: 'active',
-                address: address || '',
-                city: city || '',
-                state: state || '',
-                country: country || '',
-                postal_code: postalCode || ''
-            });
+            try {
+                const [firstName, ...lastNameParts] = name.split(' ');
+                const lastName = lastNameParts.join(' ') || 'User';
+                await Patient.create({
+                    userId: user._id,
+                    firstName,
+                    lastName,
+                    email: user.email,
+                    gender: 'Not Specified',
+                    age: 0,
+                    status: 'active',
+                    address: address || '',
+                    city: city || '',
+                    state: state || '',
+                    country: country || '',
+                    postalCode: postalCode || ''
+                });
+            } catch (profileError) {
+                // Rollback User creation if Profile creation fails
+                await User.findByIdAndDelete(user._id);
+                throw profileError;
+            }
         }
 
         // Send Welcome Email
