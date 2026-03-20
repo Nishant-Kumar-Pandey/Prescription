@@ -68,19 +68,19 @@ const Home = () => {
 
           <div className="space-y-8 flex flex-col justify-center">
             <div className="glass-card p-8 border-l-4 border-l-medical-primary shadow-soft">
-              <h3 className="font-bold text-slate-800 mb-4 text-lg">How it works:</h3>
+              <h3 className="font-bold text-slate-800 mb-4 text-lg">{t('home.howItWorks')}:</h3>
               <ul className="text-sm text-slate-600 space-y-4">
                 <li className="flex items-center space-x-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-medical-primary/10 text-medical-primary rounded-full flex items-center justify-center text-xs font-bold">1</span>
-                  <span className="font-medium">Upload a clear image of your RX.</span>
+                  <span className="font-medium">{t('home.step1Desc')}</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-medical-primary/10 text-medical-primary rounded-full flex items-center justify-center text-xs font-bold">2</span>
-                  <span className="font-medium">Select your primary language in the navbar.</span>
+                  <span className="font-medium">{t('home.step2Desc')}</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-medical-primary/10 text-medical-primary rounded-full flex items-center justify-center text-xs font-bold">3</span>
-                  <span className="font-medium">Get human-friendly simplified analysis.</span>
+                  <span className="font-medium">{t('home.step3Desc')}</span>
                 </li>
               </ul>
             </div>
@@ -102,12 +102,12 @@ const Home = () => {
         <div className="space-y-8 animate-fade-in">
           <ResultCard result={result} />
           <div className="text-center">
-            <button
-              onClick={() => { setResult(null); setFile(null); }}
-              className="text-medical-primary font-bold hover:text-medical-secondary transition-colors text-lg"
-            >
-              Start over with another prescription
-            </button>
+              <button
+                onClick={() => { setResult(null); setFile(null); }}
+                className="text-medical-primary font-bold hover:text-medical-secondary transition-colors text-lg"
+              >
+                {t('home.startOver')}
+              </button>
           </div>
         </div>
       )}
@@ -116,8 +116,8 @@ const Home = () => {
       {user && !result && !loading && history.length > 0 && (
         <div className="space-y-6 pt-12 border-t border-slate-100 animate-fade-in">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-bold text-slate-800">Your Recent Analyses</h3>
-            <a href="/profile" className="text-medical-primary text-sm font-bold hover:underline">View All</a>
+            <h3 className="text-xl font-bold text-slate-800">{t('home.historyTitle')}</h3>
+            <Link to="/profile" className="text-medical-primary text-sm font-bold hover:underline">{t('home.viewAll')}</Link>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
             {history.map((item, i) => (

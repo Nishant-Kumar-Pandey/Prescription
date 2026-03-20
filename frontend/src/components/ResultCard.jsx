@@ -11,8 +11,8 @@ const ResultCard = ({ result }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800">Analysis Incomplete</h3>
-                <p className="text-slate-600 font-medium">{result?.reason || "The uploaded image could not be recognized as a valid medical prescription."}</p>
+                <h3 className="text-xl font-bold text-slate-800">{t('results.incomplete')}</h3>
+                <p className="text-slate-600 font-medium">{result?.reason || t('results.incomplete')}</p>
             </div>
         );
     }
@@ -24,7 +24,7 @@ const ResultCard = ({ result }) => {
                 <div className="absolute top-0 right-0 p-2">
                     {result.aiFailed && (
                         <span className="bg-amber-100 text-amber-700 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-tighter animate-pulse">
-                            Fallback Mode
+                            {t('results.fallback')}
                         </span>
                     )}
                 </div>
@@ -33,15 +33,15 @@ const ResultCard = ({ result }) => {
                 </div>
                 <div className="flex-1">
                     <h2 className="text-3xl font-black text-slate-800 tracking-tight">
-                        {result.isPrescription ? 'Prescription Analysis' : 'Medical Analysis'}
+                        {result.isPrescription ? t('results.prescriptionAnalysis') : t('results.medicalAnalysis')}
                     </h2>
                     <div className="flex items-center gap-3 mt-1">
                         <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">
-                            Confidence: <span className="text-medical-primary">{result.confidence?.toFixed(1) || 0}%</span>
+                            {t('results.confidence')}: <span className="text-medical-primary">{result.confidence?.toFixed(1) || 0}%</span>
                         </p>
                         <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
                         <p className="text-slate-500 font-bold uppercase tracking-widest text-[10px]">
-                            Type: <span className="text-medical-primary">{result.isPrescription ? 'RX' : 'Doc'}</span>
+                            {t('results.type')}: <span className="text-medical-primary">{result.isPrescription ? 'RX' : 'Doc'}</span>
                         </p>
                     </div>
                 </div>
@@ -53,8 +53,8 @@ const ResultCard = ({ result }) => {
                         {result.medicines?.length || 0}
                     </div>
                     <div>
-                        <p className="text-xs text-slate-400 font-extrabold uppercase tracking-widest">Medicines Detected</p>
-                        <h4 className="font-bold text-slate-800">Extracted from RX</h4>
+                        <p className="text-xs text-slate-400 font-extrabold uppercase tracking-widest">{t('results.medicinesDetected')}</p>
+                        <h4 className="font-bold text-slate-800">{t('results.extractedFromRx')}</h4>
                     </div>
                 </div>
                 <div className="glass-card p-6 border-l-4 border-l-medical-secondary flex items-center space-x-4">
@@ -64,8 +64,8 @@ const ResultCard = ({ result }) => {
                         </svg>
                     </div>
                     <div>
-                        <p className="text-xs text-slate-400 font-extrabold uppercase tracking-widest">AI Confidence</p>
-                        <h4 className="font-bold text-slate-800">High Precision Analysis</h4>
+                        <p className="text-xs text-slate-400 font-extrabold uppercase tracking-widest">{t('results.aiConfidence')}</p>
+                        <h4 className="font-bold text-slate-800">{t('results.highPrecision')}</h4>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ const ResultCard = ({ result }) => {
                         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 relative z-10">
                             <div className="space-y-2">
                                 <div className="flex items-center space-x-2">
-                                    <span className="bg-medical-primary/10 text-medical-primary text-[10px] font-black px-2 py-0.5 rounded-md uppercase">Medicine {index + 1}</span>
+                                    <span className="bg-medical-primary/10 text-medical-primary text-[10px] font-black px-2 py-0.5 rounded-md uppercase">{t('results.medicine')} {index + 1}</span>
                                     {med.route && <span className="bg-slate-100 text-slate-500 text-[10px] font-bold px-2 py-0.5 rounded-md uppercase">{med.route}</span>}
                                 </div>
                                 <h2 className="text-3xl font-black text-slate-800 tracking-tight">{med.name}</h2>
@@ -92,7 +92,7 @@ const ResultCard = ({ result }) => {
                                 <svg className="w-4 h-4 text-medical-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <span>Duration: {med.duration}</span>
+                                <span>{t('results.duration')}: {med.duration}</span>
                             </div>
                         </div>
 
@@ -102,7 +102,7 @@ const ResultCard = ({ result }) => {
                                     <svg className="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    Simple Explanation
+                                    {t('results.simpleExplanation')}
                                 </h3>
                                 <div className="bg-slate-50/70 p-5 rounded-2xl border border-slate-100/50">
                                     <p className="text-slate-700 leading-relaxed font-semibold italic text-base">
@@ -115,7 +115,7 @@ const ResultCard = ({ result }) => {
                                     <svg className="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                     </svg>
-                                    Precautions
+                                    {t('results.precautions')}
                                 </h3>
                                 <div className="bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50">
                                     <p className="text-[13px] text-amber-900 font-bold leading-relaxed">
@@ -138,7 +138,7 @@ const ResultCard = ({ result }) => {
                             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            General Healthcare Advice
+                            {t('results.generalAdvice')}
                         </h3>
                         <p className="text-slate-600 font-bold text-lg leading-relaxed bg-medical-primary/5 p-6 rounded-2xl border border-medical-primary/10">
                             {result.general_advice}
@@ -147,7 +147,7 @@ const ResultCard = ({ result }) => {
                 )}
 
                 <div className="pt-6 border-t border-slate-100 space-y-8 relative z-10">
-                    <AudioPlayer text={result.ttsText || "No voice breakdown available."} />
+                    <AudioPlayer text={result.ttsText || t('results.noVoice')} />
 
                     {/* Technical Analysis Toggle (Requested feature) */}
                     <details className="group">
@@ -155,23 +155,23 @@ const ResultCard = ({ result }) => {
                             <svg className="w-3 h-3 group-open:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                             </svg>
-                            <span>View Technical OCR Evidence</span>
+                            <span>{t('results.viewTechnical')}</span>
                         </summary>
                         <div className="mt-4 p-5 bg-slate-900 rounded-2xl border border-white/10 space-y-4">
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <p className="text-[9px] text-slate-500 font-bold uppercase mb-1">OCR Status</p>
-                                    <p className="text-xs text-emerald-400 font-bold">Successfully Parsed</p>
+                                    <p className="text-[9px] text-slate-500 font-bold uppercase mb-1">{t('results.ocrStatus')}</p>
+                                    <p className="text-xs text-emerald-400 font-bold">{t('results.successfullyParsed')}</p>
                                 </div>
                                 <div>
-                                    <p className="text-[9px] text-slate-500 font-bold uppercase mb-1">Target Language</p>
+                                    <p className="text-[9px] text-slate-500 font-bold uppercase mb-1">{t('results.targetLanguage')}</p>
                                     <p className="text-xs text-white font-bold">{result.language || 'English'}</p>
                                 </div>
                             </div>
                             <div>
-                                <p className="text-[9px] text-slate-500 font-bold uppercase mb-2">Raw Text Evidence</p>
+                                <p className="text-[9px] text-slate-500 font-bold uppercase mb-2">{t('results.rawEvidence')}</p>
                                 <pre className="text-[10px] text-slate-400 font-mono bg-black/40 p-4 rounded-xl overflow-x-auto whitespace-pre-wrap max-h-32">
-                                    {result.rawText || "Historical text evidence extracted."}
+                                    {result.rawText || t('results.rawEvidence')}
                                 </pre>
                             </div>
                         </div>
