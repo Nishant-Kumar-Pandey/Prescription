@@ -46,10 +46,10 @@ const AdminDashboard = () => {
     };
 
     return (
-        <div className="space-y-8 animate-fade-in pb-12">
+        <div className="space-y-8 animate-fade-in pb-12 transition-colors duration-300">
             <div>
-                <h1 className="text-4xl font-black text-slate-800 tracking-tight">System Administration</h1>
-                <p className="text-slate-500 font-medium">Hospital network control center</p>
+                <h1 className="text-4xl font-black text-slate-800 dark:text-slate-100 tracking-tight transition-colors">System Administration</h1>
+                <p className="text-slate-500 dark:text-slate-400 font-medium transition-colors">Hospital network control center</p>
             </div>
 
             {/* Global Stats */}
@@ -61,19 +61,19 @@ const AdminDashboard = () => {
                         { label: 'Appointments', value: stats.totalAppointments, color: 'emerald' },
                         { label: 'Revenue', value: `₹${stats.revenue}`, color: 'amber' }
                     ].map((stat, i) => (
-                        <div key={i} className={`glass-card p-6 bg-${stat.color}-500/10 border-${stat.color}-200/50 rounded-3xl shadow-lg border-white/20`}>
-                            <p className={`text-xs font-black text-${stat.color}-600 uppercase tracking-widest mb-1`}>{stat.label}</p>
-                            <p className="text-3xl font-black text-slate-800">{stat.value}</p>
+                        <div key={i} className={`glass-card p-6 bg-${stat.color}-500/10 dark:bg-${stat.color}-900/20 border-${stat.color}-200/50 dark:border-${stat.color}-900/30 rounded-3xl shadow-lg border-white/20 dark:border-white/5 transition-colors`}>
+                            <p className={`text-xs font-black text-${stat.color}-600 dark:text-${stat.color}-400 uppercase tracking-widest mb-1 transition-colors`}>{stat.label}</p>
+                            <p className="text-3xl font-black text-slate-800 dark:text-slate-100 transition-colors">{stat.value}</p>
                         </div>
                     ))}
                 </div>
             )}
 
             {/* Staff & User Management */}
-            <div className="glass-card overflow-hidden border-white/40 bg-white/20 backdrop-blur-xl rounded-[2.5rem] shadow-2xl">
-                <div className="p-8 border-b border-white/20 bg-white/30 flex justify-between items-center">
-                    <h2 className="text-2xl font-black text-slate-800">User Management</h2>
-                    <div className="px-4 py-2 bg-white/50 border border-slate-200 rounded-xl text-xs font-bold text-slate-500">
+            <div className="glass-card overflow-hidden border-white/40 dark:border-white/10 bg-white/20 dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] shadow-2xl transition-colors">
+                <div className="p-8 border-b border-white/20 dark:border-white/5 bg-white/30 dark:bg-slate-900/50 transition-colors flex justify-between items-center">
+                    <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 transition-colors">User Management</h2>
+                    <div className="px-4 py-2 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-500 dark:text-slate-400 transition-colors">
                         {users.length} Records Found
                     </div>
                 </div>
@@ -83,7 +83,7 @@ const AdminDashboard = () => {
                         <div className="p-20 text-center text-slate-400 font-bold">Syncing encrypted data...</div>
                     ) : (
                         <table className="w-full text-left font-medium">
-                            <thead className="bg-slate-50/50 text-slate-500 text-[10px] font-black uppercase tracking-widest">
+                            <thead className="bg-slate-50/50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-[10px] font-black uppercase tracking-widest transition-colors">
                                 <tr>
                                     <th className="px-8 py-4">Identity</th>
                                     <th className="px-8 py-4">Role</th>
@@ -91,13 +91,13 @@ const AdminDashboard = () => {
                                     <th className="px-8 py-4 text-right">Administrative Actions</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-white/20">
+                            <tbody className="divide-y divide-white/20 dark:divide-white/5 transition-colors">
                                 {users.map((u) => (
-                                    <tr key={u._id} className="hover:bg-white/40 transition-colors group">
+                                    <tr key={u._id} className="hover:bg-white/40 dark:hover:bg-slate-800/40 transition-colors group">
                                         <td className="px-8 py-6">
                                             <div className="flex flex-col">
-                                                <span className="font-bold text-slate-800">{u.name}</span>
-                                                <span className="text-xs text-slate-500 font-bold">{u.email}</span>
+                                                <span className="font-bold text-slate-800 dark:text-slate-200 transition-colors">{u.name}</span>
+                                                <span className="text-xs text-slate-500 dark:text-slate-400 font-bold transition-colors">{u.email}</span>
                                             </div>
                                         </td>
                                         <td className="px-8 py-6">

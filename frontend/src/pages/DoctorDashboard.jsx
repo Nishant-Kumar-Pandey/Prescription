@@ -46,12 +46,12 @@ const DoctorDashboard = () => {
         <div className="space-y-8 animate-fade-in pb-12">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-4xl font-black text-slate-800 tracking-tight">Doctor Dashboard</h1>
-                    <p className="text-slate-500 font-medium">Manage your patients and schedule</p>
+                    <h1 className="text-4xl font-black text-slate-800 dark:text-slate-100 tracking-tight transition-colors">Doctor Dashboard</h1>
+                    <p className="text-slate-500 dark:text-slate-400 font-medium transition-colors">Manage your patients and schedule</p>
                 </div>
                 <div className="flex gap-4">
-                    <div className="glass-card px-6 py-3 border-white/40 bg-white/30 backdrop-blur-md rounded-2xl shadow-lg">
-                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Total Patients</p>
+                    <div className="glass-card px-6 py-3 border-white/40 dark:border-white/10 bg-white/30 dark:bg-slate-900/40 backdrop-blur-md rounded-2xl shadow-lg transition-colors">
+                        <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1 transition-colors">Total Patients</p>
                         <p className="text-2xl font-black text-medical-primary">{stats.total}</p>
                     </div>
                 </div>
@@ -59,24 +59,24 @@ const DoctorDashboard = () => {
 
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="glass-card p-6 bg-blue-500/10 border-blue-200/50 rounded-3xl">
-                    <p className="text-sm font-bold text-blue-600 mb-2">Pending Appointments</p>
-                    <p className="text-3xl font-black text-blue-800">{stats.pending}</p>
+                <div className="glass-card p-6 bg-blue-500/10 dark:bg-blue-900/20 border-blue-200/50 dark:border-blue-900/30 rounded-3xl transition-colors">
+                    <p className="text-sm font-bold text-blue-600 dark:text-blue-400 mb-2 transition-colors">Pending Appointments</p>
+                    <p className="text-3xl font-black text-blue-800 dark:text-blue-200 transition-colors">{stats.pending}</p>
                 </div>
-                <div className="glass-card p-6 bg-emerald-500/10 border-emerald-200/50 rounded-3xl">
-                    <p className="text-sm font-bold text-emerald-600 mb-2">Completed Visits</p>
-                    <p className="text-3xl font-black text-emerald-800">{stats.completed}</p>
+                <div className="glass-card p-6 bg-emerald-500/10 dark:bg-emerald-900/20 border-emerald-200/50 dark:border-emerald-900/30 rounded-3xl transition-colors">
+                    <p className="text-sm font-bold text-emerald-600 dark:text-emerald-400 mb-2 transition-colors">Completed Visits</p>
+                    <p className="text-3xl font-black text-emerald-800 dark:text-emerald-200 transition-colors">{stats.completed}</p>
                 </div>
-                <div className="glass-card p-6 bg-purple-500/10 border-purple-200/50 rounded-3xl">
-                    <p className="text-sm font-bold text-purple-600 mb-2">Daily Limit Usage</p>
-                    <p className="text-2xl font-black text-purple-800">{stats.pending} / 10</p>
+                <div className="glass-card p-6 bg-purple-500/10 dark:bg-purple-900/20 border-purple-200/50 dark:border-purple-900/30 rounded-3xl transition-colors">
+                    <p className="text-sm font-bold text-purple-600 dark:text-purple-400 mb-2 transition-colors">Daily Limit Usage</p>
+                    <p className="text-2xl font-black text-purple-800 dark:text-purple-200 transition-colors">{stats.pending} / 10</p>
                 </div>
             </div>
 
             {/* Appointment List */}
-            <div className="glass-card overflow-hidden border-white/40 bg-white/20 backdrop-blur-xl rounded-[2.5rem] shadow-2xl">
-                <div className="p-8 border-b border-white/20 bg-white/30">
-                    <h2 className="text-2xl font-black text-slate-800">Your Appointments</h2>
+            <div className="glass-card overflow-hidden border-white/40 dark:border-white/10 bg-white/20 dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] shadow-2xl transition-colors">
+                <div className="p-8 border-b border-white/20 dark:border-white/5 bg-white/30 dark:bg-slate-900/50 transition-colors">
+                    <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 transition-colors">Your Appointments</h2>
                 </div>
 
                 <div className="overflow-x-auto">
@@ -86,7 +86,7 @@ const DoctorDashboard = () => {
                         <div className="p-20 text-center text-slate-400 font-bold">No appointments found.</div>
                     ) : (
                         <table className="w-full text-left">
-                            <thead className="bg-slate-50/50 text-slate-500 text-xs font-black uppercase tracking-widest">
+                            <thead className="bg-slate-50/50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-black uppercase tracking-widest transition-colors">
                                 <tr>
                                     <th className="px-8 py-4">Patient</th>
                                     <th className="px-8 py-4">Date & Time</th>
@@ -94,23 +94,23 @@ const DoctorDashboard = () => {
                                     <th className="px-8 py-4 text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-white/20">
+                            <tbody className="divide-y divide-white/20 dark:divide-white/5">
                                 {appointments.map((appt) => (
-                                    <tr key={appt.id} className="hover:bg-white/40 transition-colors">
+                                    <tr key={appt.id} className="hover:bg-white/40 dark:hover:bg-slate-800/40 transition-colors">
                                         <td className="px-8 py-6">
                                             <div className="flex items-center gap-3">
                                                 <div className="w-10 h-10 rounded-full bg-medical-primary/20 flex items-center justify-center font-bold text-medical-primary">
                                                     {appt.userId?.name[0]}
                                                 </div>
                                                 <div>
-                                                    <p className="font-bold text-slate-800">{appt.userId?.name}</p>
-                                                    <p className="text-xs text-slate-500">{appt.userId?.email}</p>
+                                                    <p className="font-bold text-slate-800 dark:text-slate-200 transition-colors">{appt.userId?.name}</p>
+                                                    <p className="text-xs text-slate-500 dark:text-slate-400 transition-colors">{appt.userId?.email}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-8 py-6">
-                                            <p className="font-bold text-slate-700">{appt.date}</p>
-                                            <p className="text-sm text-slate-500">{appt.time}</p>
+                                            <p className="font-bold text-slate-700 dark:text-slate-300 transition-colors">{appt.date}</p>
+                                            <p className="text-sm text-slate-500 dark:text-slate-400 transition-colors">{appt.time}</p>
                                         </td>
                                         <td className="px-8 py-6">
                                             <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${appt.status === 'scheduled' ? 'bg-blue-100 text-blue-600' :

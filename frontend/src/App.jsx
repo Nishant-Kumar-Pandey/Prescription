@@ -1,12 +1,13 @@
 import Navbar from '@components/Navbar';
 import AppRoutes from '@routes/index';
 import { useLanguage } from '@context/LanguageContext';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-slate-50/50">
+    <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950/50 transition-colors duration-300">
       <Navbar />
       <main className="container mx-auto px-4 py-8">
         <AppRoutes />
@@ -22,6 +23,7 @@ function App() {
           </p>
         </div>
       </footer>
+      <SpeedInsights />
     </div>
   );
 }
