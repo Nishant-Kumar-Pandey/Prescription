@@ -88,5 +88,11 @@
         "noAccount": "Don't have an account?",
         "submitLogin": "Login to RxExplain",
         "submitSignup": "Start for Free"
+    },
+    "upload": {
+        "title": "Upload Prescription",
+        "subtitle": "Drag and drop your prescription image here, or click to browse",
+        "chooseFile": "Choose File",
+        "remove": "Remove and change"
     }
 }

@@ -19,52 +19,78 @@ export const analyzeImage = async (req, res) => {
         console.log("Analyzing image at:", imagePath);
 
         // Initialize Tesseract worker with cache in /tmp for cloud environments
-        worker = await Tesseract.createWorker('eng', 1, {
-            langPath: fs.existsSync(path.join(process.cwd(), 'eng.traineddata')) ? process.cwd() : '/tmp',
-            cachePath: '/tmp',
-            logger: m => console.log(m)
-        });
+        try {
+            console.log("Initializing Tesseract worker...");
+            worker = await Tesseract.createWorker('eng', 1, {
+                langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
+                cachePath: '/tmp',
+                logger: m => console.log(m)
+            });
+            console.log("Worker initialized successfully.");
+        } catch (workerError) {
+            console.error("Tesseract worker initialization failed:", workerError);
+            return res.status(500).json({ 
+                message: "OCR service initialization failed", 
+                error: workerError.message,
+                stack: process.env.NODE_ENV === 'development' ? workerError.stack : undefined
+            });
+        }
 
-        const { data: { text, confidence } } = await worker.recognize(imagePath);
-        
-        // Clean up worker
-        await worker.terminate();
-        worker = null;
+        try {
+            console.log("Starting recognition...");
+            const { data: { text, confidence } } = await worker.recognize(imagePath);
+            console.log("Recognition complete. Confidence:", confidence);
+            
+            // Clean up worker
+            await worker.terminate();
+            worker = null;
 
-        // Simple parsing logic (can be expanded)
-        const analysis = {
-            rawText: text,
-            detectedKeywords: [],
-            isPrescription: text.toLowerCase().includes('rx') || text.toLowerCase().includes('prescription'),
-            confidence: confidence
-        };
+            // Simple parsing logic (can be expanded)
+            const analysis = {
+                rawText: text,
+                detectedKeywords: [],
+                isPrescription: text.toLowerCase().includes('rx') || text.toLowerCase().includes('prescription'),
+                confidence: confidence
+            };
 
-        // Example keyword detection
-        const keywords = ['mg', 'tablet', 'capsule', 'daily', 'twice', 'medical', 'license'];
-        keywords.forEach(word => {
-            if (text.toLowerCase().includes(word)) {
-                analysis.detectedKeywords.push(word);
+            // Example keyword detection
+            const commonMeds = ['paracetamol', 'amoxicillin', 'aspirin', 'ibuprofen', 'metformin'];
+            analysis.detectedKeywords = commonMeds.filter(med => 
+                text.toLowerCase().includes(med)
+            );
+
+            // Clean up uploaded file
+            if (fs.existsSync(imagePath)) {
+                fs.unlinkSync(imagePath);
             }
-        });
 
-        // Cleanup: remove file after analysis if it was a temp upload (optional)
-        // For now, let's keep it in uploads but maybe use a separate folder later
-
-        res.json({
-            message: "Image analyzed successfully",
-            analysis
-        });
-
+            res.json({ analysis });
+        } catch (recogError) {
+            console.error("Tesseract recognition failed:", recogError);
+            if (worker) await worker.terminate();
+            throw recogError; // Pass to outer catch
+        }
     } catch (error) {
-        console.error("OCR Error:", error);
+        console.error("OCR Error Details:", error);
+        
         // Clean up worker if it exists
         if (worker) {
-            try { await worker.terminate(); } catch (e) {}
+            try {
+                await worker.terminate();
+            } catch (tError) {
+                console.error("Failed to terminate worker on error:", tError);
+            }
         }
-        // Clean up file if it exists to avoid filling up disk on 500s
-        if (req.file && req.file.path && fs.existsSync(req.file.path)) {
-            try { fs.unlinkSync(req.file.path); } catch (e) {}
+
+        // Clean up file
+        if (req.file && fs.existsSync(req.file.path)) {
+            try {
+                fs.unlinkSync(req.file.path);
+            } catch (fError) {
+                console.error("Failed to delete file on error:", fError);
+            }
         }
+
         res.status(500).json({ 
             message: "Failed to analyze image", 
             error: error.message,

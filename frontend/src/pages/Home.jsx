@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import UploadPrescription from '@components/UploadPrescription';
 import ResultCard from '@components/ResultCard';
 import Loader from '@components/Loader';

@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
+import { useLanguage } from '@context/LanguageContext';
 
 const UploadPrescription = ({ onUpload }) => {
+    const { t } = useLanguage();
     const [dragActive, setDragActive] = useState(false);
     const [preview, setPreview] = useState(null);
     const inputRef = useRef(null);
@@ -54,14 +56,14 @@ const UploadPrescription = ({ onUpload }) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                         </svg>
                     </div>
-                    <h2 className="text-xl font-semibold text-slate-800 mb-2">Upload Prescription</h2>
-                    <p className="text-slate-500 mb-6 text-center">Drag and drop your prescription image here, or click to browse</p>
-                    <button onClick={() => inputRef.current.click()} className="btn-primary">Choose File</button>
+                    <h2 className="text-xl font-semibold text-slate-800 mb-2">{t('upload.title')}</h2>
+                    <p className="text-slate-500 mb-6 text-center">{t('upload.subtitle')}</p>
+                    <button onClick={() => inputRef.current.click()} className="btn-primary">{t('upload.chooseFile')}</button>
                 </>
             ) : (
                 <div className="w-full flex flex-col items-center">
                     <img src={preview} alt="Preview" className="max-h-64 rounded-lg mb-6 shadow-md" />
-                    <button onClick={() => setPreview(null)} className="text-red-500 text-sm font-medium hover:underline">Remove and change</button>
+                    <button onClick={() => setPreview(null)} className="text-red-500 text-sm font-medium hover:underline">{t('upload.remove')}</button>
                 </div>
             )}
 
