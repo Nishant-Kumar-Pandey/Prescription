@@ -21,7 +21,8 @@ const Navbar = () => {
   return (
     <>
       <nav className="glass-nav px-6 py-4 flex justify-between items-center sticky top-0 z-50 bg-white/70 backdrop-blur-xl border-b border-white/40 shadow-sm">
-        <Link to="/" className="text-3xl font-black bg-gradient-to-r from-medical-primary to-medical-secondary bg-clip-text text-transparent tracking-tighter">
+        <Link to="/" className="text-3xl font-black bg-gradient-to-r from-medical-primary to-medical-secondary bg-clip-text text-transparent tracking-tighter flex items-center gap-3">
+          <img src="/logo.png" alt="RxExplain Logo" className="w-10 h-10 object-contain rounded-xl" />
           RxExplain
         </Link>
 

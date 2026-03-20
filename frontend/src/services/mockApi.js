@@ -96,14 +96,14 @@ export const mockApi = {
 
     getHistory: async () => {
         try {
-            const response = await appointmentService.getAll();
+            const response = await prescriptionService.getAll();
             if (response.data && response.data.length > 0) {
                 // Map backend data to frontend expectations
-                return response.data.map(appt => ({ // Changed from mock data to actual data
-                    id: appt._id,
-                    date: appt.date,
-                    medication: appt.doctorId?.specialization || 'Consultation', // Fallback
-                    status: appt.status
+                return response.data.map(p => ({
+                    id: p._id,
+                    date: p.createdAt ? new Date(p.createdAt).toLocaleDateString() : 'N/A',
+                    medication: p.medicines?.[0]?.name || 'Analyzed Rx',
+                    status: 'Completed'
                 }));
             }
         } catch (error) {
