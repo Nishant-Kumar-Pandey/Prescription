@@ -40,6 +40,7 @@ const Doctors = () => {
 
     const handleBookAppointment = (doctor) => {
         if (!user) {
+            alert(t('common.loginRequired') || "Please sign in or create an account to book an appointment.");
             navigate('/login');
             return;
         }
