@@ -37,10 +37,10 @@ const Login = () => {
 
   return (
     <div className="max-w-md mx-auto py-12 px-4 transition-colors duration-300">
-      <div className="glass-card p-10 space-y-8 animate-fade-in border border-white/40 dark:border-white/10 shadow-2xl bg-white/10 dark:bg-slate-900/40 backdrop-blur-xl rounded-[2rem] transition-colors">
+      <div className="glass-card p-10 space-y-8 animate-fade-in border border-white/40 dark:border-white/10 shadow-2xl bg-white/10 dark:bg-neutral-900/40 backdrop-blur-xl rounded-[2rem] transition-colors">
         <div className="text-center">
-          <h2 className="text-4xl font-black text-slate-800 dark:text-slate-100 tracking-tight transition-colors">{t('auth.welcome')}</h2>
-          <p className="text-slate-500 dark:text-slate-400 mt-2 font-medium transition-colors">Access your secure dashboard</p>
+          <h2 className="text-4xl font-black text-slate-800 dark:text-neutral-100 tracking-tight transition-colors">{t('auth.welcome')}</h2>
+          <p className="text-slate-500 dark:text-neutral-400 mt-2 font-medium transition-colors">Access your secure dashboard</p>
         </div>
 
         {error && (
@@ -51,25 +51,25 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">{t('auth.email')}</label>
+            <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">{t('auth.email')}</label>
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-slate-200"
+              className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-neutral-200"
               placeholder="name@example.com"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">{t('auth.password')}</label>
+            <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">{t('auth.password')}</label>
             <input
               type="password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-slate-200"
+              className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-neutral-200"
               placeholder="••••••••"
             />
           </div>
@@ -83,7 +83,7 @@ const Login = () => {
           </button>
         </form>
 
-        <p className="text-center text-slate-500 dark:text-slate-400 font-medium pt-2 transition-colors">
+        <p className="text-center text-slate-500 dark:text-neutral-400 font-medium pt-2 transition-colors">
           {t('auth.noAccount')}{' '}
           <Link to="/signup" className="text-medical-primary font-bold hover:text-medical-secondary transition-colors underline decoration-2 underline-offset-4">{t('common.signup')}</Link>
         </p>

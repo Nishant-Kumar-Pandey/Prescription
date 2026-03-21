@@ -43,7 +43,7 @@ const UploadPrescription = ({ onUpload }) => {
     };
 
     return (
-        <div className={`glass-card p-10 flex flex-col items-center justify-center border-2 border-dashed transition-all duration-300 ${dragActive ? 'border-medical-primary bg-medical-primary/5 dark:bg-medical-primary/10' : 'border-slate-300 dark:border-slate-700'} dark:bg-slate-900/40`}
+        <div className={`glass-card p-10 flex flex-col items-center justify-center border-2 border-dashed transition-all duration-300 ${dragActive ? 'border-medical-primary bg-medical-primary/5 dark:bg-medical-primary/10' : 'border-slate-300 dark:border-neutral-700'} dark:bg-neutral-900/40`}
             onDragEnter={handleDrag}
             onDragLeave={handleDrag}
             onDragOver={handleDrag}
@@ -56,8 +56,8 @@ const UploadPrescription = ({ onUpload }) => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                         </svg>
                     </div>
-                    <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100 mb-2 transition-colors">{t('upload.title')}</h2>
-                    <p className="text-slate-500 dark:text-slate-400 mb-6 text-center transition-colors">{t('upload.subtitle')}</p>
+                    <h2 className="text-xl font-semibold text-slate-800 dark:text-neutral-100 mb-2 transition-colors">{t('upload.title')}</h2>
+                    <p className="text-slate-500 dark:text-neutral-400 mb-6 text-center transition-colors">{t('upload.subtitle')}</p>
                     <button onClick={() => inputRef.current.click()} className="btn-primary">{t('upload.chooseFile')}</button>
                 </>
             ) : (

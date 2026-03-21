@@ -93,18 +93,18 @@ const PaymentPage = () => {
     if (!appointment) return null;
 
     return (
-        <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950/50 transition-colors duration-300 pb-20">
+        <div className="min-h-screen bg-slate-50/50 dark:bg-black/50 transition-colors duration-300 pb-20">
             {/* Simple Step Indicator */}
-            <div className="bg-white/40 dark:bg-slate-900/40 border-b border-white/60 dark:border-white/10 p-6 mb-12 backdrop-blur-md sticky top-[80px] z-40 transition-colors">
+            <div className="bg-white/40 dark:bg-neutral-900/40 border-b border-white/60 dark:border-white/10 p-6 mb-12 backdrop-blur-md sticky top-[80px] z-40 transition-colors">
                 <div className="max-w-4xl mx-auto flex items-center justify-center gap-4">
                     <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-emerald-500 text-white text-[10px] flex items-center justify-center font-black">✓</div>
-                        <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest transition-colors">Select Doctor</span>
+                        <span className="text-[10px] font-black text-slate-400 dark:text-neutral-500 uppercase tracking-widest transition-colors">Select Doctor</span>
                     </div>
-                    <div className="w-12 h-px bg-slate-200 dark:bg-slate-800 transition-colors"></div>
+                    <div className="w-12 h-px bg-slate-200 dark:bg-neutral-800 transition-colors"></div>
                     <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-full bg-medical-primary text-white text-[10px] flex items-center justify-center font-black">2</div>
-                        <span className="text-[10px] font-black text-slate-800 dark:text-slate-100 uppercase tracking-widest transition-colors">Secure Payment</span>
+                        <span className="text-[10px] font-black text-slate-800 dark:text-neutral-100 uppercase tracking-widest transition-colors">Secure Payment</span>
                     </div>
                 </div>
             </div>
@@ -113,13 +113,13 @@ const PaymentPage = () => {
                 {/* Main Content */}
                 <div className="lg:col-span-7 space-y-8 animate-in slide-in-from-left duration-700">
                     <div className="space-y-2">
-                        <h1 className="text-4xl font-black text-slate-900 dark:text-slate-100 tracking-tight transition-colors">Complete Checkout</h1>
-                        <p className="text-slate-500 dark:text-slate-400 font-medium transition-colors">Finalize your consultation with {appointment.doctorId?.name}</p>
+                        <h1 className="text-4xl font-black text-slate-900 dark:text-neutral-100 tracking-tight transition-colors">Complete Checkout</h1>
+                        <p className="text-slate-500 dark:text-neutral-400 font-medium transition-colors">Finalize your consultation with {appointment.doctorId?.name}</p>
                     </div>
 
-                    <div className="glass-card overflow-hidden bg-white/40 dark:bg-slate-900/40 border-2 border-white/80 dark:border-white/10 rounded-[3rem] shadow-2xl transition-colors">
+                    <div className="glass-card overflow-hidden bg-white/40 dark:bg-neutral-900/40 border-2 border-white/80 dark:border-white/10 rounded-[3rem] shadow-2xl transition-colors">
                         <div className="p-8 border-b border-slate-100/50 dark:border-white/5">
-                            <h2 className="text-lg font-black text-slate-800 dark:text-slate-100 uppercase tracking-widest mb-6 transition-colors">Payment Method</h2>
+                            <h2 className="text-lg font-black text-slate-800 dark:text-neutral-100 uppercase tracking-widest mb-6 transition-colors">Payment Method</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {[
                                     { id: 'razorpay', label: 'Cards / UPI', icon: '💳', highlight: 'Fast' },
@@ -129,7 +129,7 @@ const PaymentPage = () => {
                                         key={method.id}
                                         onClick={() => setSelectedMethod(method.id)}
                                         className={`relative group p-6 rounded-[2rem] border-2 transition-all duration-300 text-left ${selectedMethod === method.id
-                                            ? 'bg-slate-900 dark:bg-slate-100 border-slate-900 dark:border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.1)]'
+                                            ? 'bg-slate-900 dark:bg-neutral-100 border-slate-900 dark:border-neutral-100 shadow-[0_20px_40px_rgba(0,0,0,0.1)]'
                                             : 'bg-white/40 dark:bg-white/5 border-white dark:border-white/10 hover:border-medical-primary/30'
                                             }`}
                                     >
@@ -144,10 +144,10 @@ const PaymentPage = () => {
                                                 )}
                                             </div>
                                             <div>
-                                                <p className={`text-sm font-black uppercase tracking-widest transition-colors ${selectedMethod === method.id ? 'text-white dark:text-slate-900' : 'text-slate-800 dark:text-slate-100'}`}>
+                                                <p className={`text-sm font-black uppercase tracking-widest transition-colors ${selectedMethod === method.id ? 'text-white dark:text-slate-900' : 'text-slate-800 dark:text-neutral-100'}`}>
                                                     {method.label}
                                                 </p>
-                                                <p className={`text-[10px] mt-1 font-medium transition-colors ${selectedMethod === method.id ? 'text-slate-400 dark:text-slate-600' : 'text-slate-500 dark:text-slate-400'}`}>
+                                                <p className={`text-[10px] mt-1 font-medium transition-colors ${selectedMethod === method.id ? 'text-slate-400 dark:text-slate-600' : 'text-slate-500 dark:text-neutral-400'}`}>
                                                     Secure one-tap checkout
                                                 </p>
                                             </div>
@@ -169,8 +169,8 @@ const PaymentPage = () => {
                                 </span>
                             </button>
                             <div className="flex items-center justify-center gap-3 mt-6">
-                                <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest transition-colors">Secured by</span>
-                                <div className="w-20 h-5 bg-white/80 dark:bg-slate-800 rounded-lg p-1 flex items-center justify-center border border-slate-100 dark:border-slate-700 transition-colors">
+                                <span className="text-[10px] font-black text-slate-400 dark:text-neutral-500 uppercase tracking-widest transition-colors">Secured by</span>
+                                <div className="w-20 h-5 bg-white/80 dark:bg-neutral-800 rounded-lg p-1 flex items-center justify-center border border-slate-100 dark:border-neutral-700 transition-colors">
                                     <span className="text-[10px] font-black text-blue-600 dark:text-blue-400">Razorpay</span>
                                 </div>
                             </div>
@@ -239,8 +239,8 @@ const PaymentPage = () => {
                         <div className="flex gap-4 items-start">
                             <span className="text-xl">🛡️</span>
                             <div className="space-y-1">
-                                <p className="text-xs font-black text-slate-800 dark:text-slate-200 uppercase tracking-widest transition-colors">Appointment Protection</p>
-                                <p className="text-[10px] font-medium text-slate-500 dark:text-slate-400 leading-relaxed transition-colors">
+                                <p className="text-xs font-black text-slate-800 dark:text-neutral-200 uppercase tracking-widest transition-colors">Appointment Protection</p>
+                                <p className="text-[10px] font-medium text-slate-500 dark:text-neutral-400 leading-relaxed transition-colors">
                                     Get full refund if the doctor cancels or the consultation is not completed.
                                 </p>
                             </div>

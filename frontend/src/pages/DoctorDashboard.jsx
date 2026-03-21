@@ -46,12 +46,12 @@ const DoctorDashboard = () => {
         <div className="space-y-8 animate-fade-in pb-12">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-4xl font-black text-slate-800 dark:text-slate-100 tracking-tight transition-colors">Doctor Dashboard</h1>
-                    <p className="text-slate-500 dark:text-slate-400 font-medium transition-colors">Manage your patients and schedule</p>
+                    <h1 className="text-4xl font-black text-slate-800 dark:text-neutral-100 tracking-tight transition-colors">Doctor Dashboard</h1>
+                    <p className="text-slate-500 dark:text-neutral-400 font-medium transition-colors">Manage your patients and schedule</p>
                 </div>
                 <div className="flex gap-4">
-                    <div className="glass-card px-6 py-3 border-white/40 dark:border-white/10 bg-white/30 dark:bg-slate-900/40 backdrop-blur-md rounded-2xl shadow-lg transition-colors">
-                        <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-1 transition-colors">Total Patients</p>
+                    <div className="glass-card px-6 py-3 border-white/40 dark:border-white/10 bg-white/30 dark:bg-neutral-900/40 backdrop-blur-md rounded-2xl shadow-lg transition-colors">
+                        <p className="text-xs font-bold text-slate-500 dark:text-neutral-400 uppercase tracking-widest mb-1 transition-colors">Total Patients</p>
                         <p className="text-2xl font-black text-medical-primary">{stats.total}</p>
                     </div>
                 </div>
@@ -74,9 +74,9 @@ const DoctorDashboard = () => {
             </div>
 
             {/* Appointment List */}
-            <div className="glass-card overflow-hidden border-white/40 dark:border-white/10 bg-white/20 dark:bg-slate-900/40 backdrop-blur-xl rounded-[2.5rem] shadow-2xl transition-colors">
-                <div className="p-8 border-b border-white/20 dark:border-white/5 bg-white/30 dark:bg-slate-900/50 transition-colors">
-                    <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 transition-colors">Your Appointments</h2>
+            <div className="glass-card overflow-hidden border-white/40 dark:border-white/10 bg-white/20 dark:bg-neutral-900/40 backdrop-blur-xl rounded-[2.5rem] shadow-2xl transition-colors">
+                <div className="p-8 border-b border-white/20 dark:border-white/5 bg-white/30 dark:bg-neutral-900/50 transition-colors">
+                    <h2 className="text-2xl font-black text-slate-800 dark:text-neutral-100 transition-colors">Your Appointments</h2>
                 </div>
 
                 <div className="overflow-x-auto">
@@ -86,7 +86,7 @@ const DoctorDashboard = () => {
                         <div className="p-20 text-center text-slate-400 font-bold">No appointments found.</div>
                     ) : (
                         <table className="w-full text-left">
-                            <thead className="bg-slate-50/50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-black uppercase tracking-widest transition-colors">
+                            <thead className="bg-slate-50/50 dark:bg-neutral-800/50 text-slate-500 dark:text-neutral-400 text-xs font-black uppercase tracking-widest transition-colors">
                                 <tr>
                                     <th className="px-8 py-4">Patient</th>
                                     <th className="px-8 py-4">Date & Time</th>
@@ -103,14 +103,14 @@ const DoctorDashboard = () => {
                                                     {appt.userId?.name[0]}
                                                 </div>
                                                 <div>
-                                                    <p className="font-bold text-slate-800 dark:text-slate-200 transition-colors">{appt.userId?.name}</p>
-                                                    <p className="text-xs text-slate-500 dark:text-slate-400 transition-colors">{appt.userId?.email}</p>
+                                                    <p className="font-bold text-slate-800 dark:text-neutral-200 transition-colors">{appt.userId?.name}</p>
+                                                    <p className="text-xs text-slate-500 dark:text-neutral-400 transition-colors">{appt.userId?.email}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-8 py-6">
-                                            <p className="font-bold text-slate-700 dark:text-slate-300 transition-colors">{appt.date}</p>
-                                            <p className="text-sm text-slate-500 dark:text-slate-400 transition-colors">{appt.time}</p>
+                                            <p className="font-bold text-slate-700 dark:text-neutral-300 transition-colors">{appt.date}</p>
+                                            <p className="text-sm text-slate-500 dark:text-neutral-400 transition-colors">{appt.time}</p>
                                         </td>
                                         <td className="px-8 py-6">
                                             <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${appt.status === 'scheduled' ? 'bg-blue-100 text-blue-600' :

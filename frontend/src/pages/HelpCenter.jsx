@@ -27,15 +27,15 @@ const HelpCenter = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-12 py-8 animate-fade-in transition-colors duration-300">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-extrabold text-slate-800 dark:text-slate-100 transition-colors">{t('common.help')}</h1>
-        <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-medium transition-colors">
+        <h1 className="text-4xl font-extrabold text-slate-800 dark:text-neutral-100 transition-colors">{t('common.help')}</h1>
+        <p className="text-slate-500 dark:text-neutral-400 max-w-2xl mx-auto font-medium transition-colors">
           Learn how to use RxExplain and understand our safety guidelines.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <div className="glass-card p-8 space-y-6 border border-white/40 dark:border-white/10 shadow-xl bg-white/10 dark:bg-slate-900/40 transition-colors">
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center space-x-3 transition-colors">
+        <div className="glass-card p-8 space-y-6 border border-white/40 dark:border-white/10 shadow-xl bg-white/10 dark:bg-neutral-900/40 transition-colors">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-neutral-100 flex items-center space-x-3 transition-colors">
             <svg className="w-7 h-7 text-medical-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
             </svg>
@@ -50,8 +50,8 @@ const HelpCenter = () => {
           </div>
         </div>
 
-        <div className="glass-card p-8 space-y-6 border border-white/40 dark:border-white/10 shadow-xl bg-white/10 dark:bg-slate-900/40 transition-colors">
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center space-x-3 transition-colors">
+        <div className="glass-card p-8 space-y-6 border border-white/40 dark:border-white/10 shadow-xl bg-white/10 dark:bg-neutral-900/40 transition-colors">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-neutral-100 flex items-center space-x-3 transition-colors">
             <svg className="w-7 h-7 text-medical-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -63,7 +63,7 @@ const HelpCenter = () => {
                 <div className="flex-shrink-0 w-8 h-8 bg-medical-primary text-white rounded-xl flex items-center justify-center font-bold shadow-sm">
                   {step}
                 </div>
-                <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold transition-colors">
+                <p className="text-slate-600 dark:text-neutral-400 text-sm font-semibold transition-colors">
                   {step === 1 && "Take a clear photo of your prescription."}
                   {step === 2 && "Upload the image to our homepage."}
                   {step === 3 && "Select your language in the navbar."}
@@ -76,12 +76,12 @@ const HelpCenter = () => {
       </div>
 
       <div className="space-y-8 py-8">
-        <h2 className="text-3xl font-extrabold text-slate-800 dark:text-slate-100 text-center transition-colors">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-extrabold text-slate-800 dark:text-neutral-100 text-center transition-colors">Frequently Asked Questions</h2>
         <div className="grid gap-6 max-w-3xl mx-auto">
           {faqs.map((faq, i) => (
-            <div key={i} className="glass-card p-8 space-y-3 border border-slate-100 dark:border-white/5 shadow-soft hover:border-medical-primary/20 transition-colors bg-white/10 dark:bg-slate-900/40">
-              <h4 className="font-bold text-xl text-slate-800 dark:text-slate-100 transition-colors">{faq.q}</h4>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-medium transition-colors">{faq.a}</p>
+            <div key={i} className="glass-card p-8 space-y-3 border border-slate-100 dark:border-white/5 shadow-soft hover:border-medical-primary/20 transition-colors bg-white/10 dark:bg-neutral-900/40">
+              <h4 className="font-bold text-xl text-slate-800 dark:text-neutral-100 transition-colors">{faq.q}</h4>
+              <p className="text-slate-600 dark:text-neutral-400 leading-relaxed font-medium transition-colors">{faq.a}</p>
             </div>
           ))}
         </div>

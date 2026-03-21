@@ -55,10 +55,10 @@ const Signup = () => {
 
   return (
     <div className="max-w-2xl mx-auto py-12 px-4 transition-colors duration-300">
-      <div className="glass-card p-10 space-y-8 animate-fade-in border border-white/40 dark:border-white/10 shadow-2xl bg-white/10 dark:bg-slate-900/40 backdrop-blur-xl rounded-[2rem] transition-colors">
+      <div className="glass-card p-10 space-y-8 animate-fade-in border border-white/40 dark:border-white/10 shadow-2xl bg-white/10 dark:bg-neutral-900/40 backdrop-blur-xl rounded-[2rem] transition-colors">
         <div className="text-center">
-          <h2 className="text-4xl font-black text-slate-800 dark:text-slate-100 tracking-tight transition-colors">{t('auth.createAccount')}</h2>
-          <p className="text-slate-500 dark:text-slate-400 mt-3 font-medium text-lg transition-colors">Join the smart healthcare revolution</p>
+          <h2 className="text-4xl font-black text-slate-800 dark:text-neutral-100 tracking-tight transition-colors">{t('auth.createAccount')}</h2>
+          <p className="text-slate-500 dark:text-neutral-400 mt-3 font-medium text-lg transition-colors">Join the smart healthcare revolution</p>
         </div>
 
         {error && (
@@ -71,51 +71,51 @@ const Signup = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Common Fields */}
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">{t('auth.name')}</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">{t('auth.name')}</label>
               <input
                 name="name"
                 type="text"
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="Full Name"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">{t('auth.email')}</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">{t('auth.email')}</label>
               <input
                 name="email"
                 type="email"
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="email@example.com"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">{t('auth.password')}</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">{t('auth.password')}</label>
               <input
                 name="password"
                 type="password"
                 required
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="••••••••"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">Account Role</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">Account Role</label>
               <select
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-neutral-200"
               >
                 <option value="patient">Patient</option>
                 <option value="doctor">Doctor</option>
@@ -125,61 +125,61 @@ const Signup = () => {
 
             {/* Location Fields */}
             <div className="space-y-2 md:col-span-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">Street Address</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">Street Address</label>
               <input
                 name="address"
                 type="text"
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="123 Medical St"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">City</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">City</label>
               <input
                 name="city"
                 type="text"
                 value={formData.city}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="New York"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">State / Province</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">State / Province</label>
               <input
                 name="state"
                 type="text"
                 value={formData.state}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="NY"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">Country</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">Country</label>
               <input
                 name="country"
                 type="text"
                 value={formData.country}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="United States"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">Postal Code</label>
+              <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">Postal Code</label>
               <input
                 name="postalCode"
                 type="text"
                 value={formData.postalCode}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="10001"
               />
             </div>
@@ -187,42 +187,42 @@ const Signup = () => {
 
           {/* Role-Specific Fields */}
           {formData.role === 'doctor' && (
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-6 animate-slide-up transition-colors">
+            <div className="pt-4 border-t border-slate-100 dark:border-neutral-800 flex flex-col gap-6 animate-slide-up transition-colors">
               <h3 className="text-lg font-bold text-medical-primary">Professional Verification</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">Specialization</label>
+                  <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">Specialization</label>
                   <input
                     name="specialization"
                     type="text"
                     required
                     value={formData.specialization}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                     placeholder="e.g. Cardiologist"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">Experience (Years)</label>
+                  <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">Experience (Years)</label>
                   <input
                     name="experience"
                     type="number"
                     required
                     value={formData.experience}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                     placeholder="12"
                   />
                 </div>
                 <div className="space-y-2 md:col-span-2">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">Medical License Number</label>
+                  <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">Medical License Number</label>
                   <input
                     name="licenseNumber"
                     type="text"
                     required
                     value={formData.licenseNumber}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                     placeholder="MC-XXXXXXX"
                   />
                 </div>
@@ -231,17 +231,17 @@ const Signup = () => {
           )}
 
           {formData.role === 'admin' && (
-            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-4 animate-slide-up transition-colors">
+            <div className="pt-4 border-t border-slate-100 dark:border-neutral-800 space-y-4 animate-slide-up transition-colors">
               <h3 className="text-lg font-bold text-amber-600 dark:text-amber-400 transition-colors">Admin Authority Verification</h3>
               <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1 transition-colors">System Admin Key</label>
+                <label className="text-sm font-bold text-slate-700 dark:text-neutral-300 ml-1 transition-colors">System Admin Key</label>
                 <input
                   name="adminKey"
                   type="password"
                   required
                   value={formData.adminKey}
                   onChange={handleChange}
-                  className="w-full bg-amber-50/50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/30 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-slate-200"
+                  className="w-full bg-amber-50/50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/30 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
                   placeholder="Enter your system admin passkey"
                 />
               </div>
@@ -257,7 +257,7 @@ const Signup = () => {
           </button>
         </form>
 
-        <p className="text-center text-slate-500 dark:text-slate-400 font-medium transition-colors">
+        <p className="text-center text-slate-500 dark:text-neutral-400 font-medium transition-colors">
           {t('auth.alreadyHaveAccount')}{' '}
           <Link to="/login" className="text-medical-primary font-bold hover:text-medical-secondary transition-colors underline decoration-2 underline-offset-4">{t('common.login')}</Link>
         </p>

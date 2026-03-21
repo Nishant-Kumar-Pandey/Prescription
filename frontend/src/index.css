@@ -8,8 +8,8 @@
     }
 
     .dark body {
-        background-color: #020617; /* bg-slate-950 */
-        color: #f8fafc; /* text-slate-50 */
+        background-color: #000000; /* bg-black */
+        color: #fafafa; /* text-neutral-50 */
     }
 }
 
