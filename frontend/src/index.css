@@ -1,29 +1,4 @@
-@import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
-
-@layer base {
-    body {
-        background-color: #f8fafc; /* bg-slate-50 */
-        color: #0f172a; /* text-slate-900 */
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .dark body {
-        background-color: #000000; /* bg-black */
-        color: #fafafa; /* text-neutral-50 */
-    }
-}
-
-@theme {
-    --animate-slide-in: slide-in 0.3s ease-out;
-
-    @keyframes slide-in {
-        from {
-            transform: translateX(100%);
-        }
-
-        to {
-            transform: translateX(0);
-        }
-    }
-}
+/* 
+This file is currently orphaned/unused by the application. 
+Global styles and Tailwind configurations are defined in src/styles/global.css.
+*/
