@@ -18,7 +18,7 @@ const LanguageSelect = () => {
                 <select
                     value={language}
                     onChange={(e) => toggleLanguage(e.target.value)}
-                    className="appearance-none bg-white/50 backdrop-blur-md border border-slate-200 rounded-lg px-3 py-1.5 pr-8 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-medical-primary/50 transition-all cursor-pointer hover:bg-white"
+                    className="appearance-none bg-white/50 backdrop-blur-md border border-slate-200 rounded-lg px-3 py-1.5 pr-8 text-sm font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-medical-primary/50 transition-colors cursor-pointer hover:bg-white"
                 >
                     {languages.map((lang) => (
                         <option key={lang.code} value={lang.code}>

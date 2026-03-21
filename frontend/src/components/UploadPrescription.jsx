@@ -43,7 +43,7 @@ const UploadPrescription = ({ onUpload }) => {
     };
 
     return (
-        <div className={`glass-card p-10 flex flex-col items-center justify-center border-2 border-dashed transition-all duration-300 ${dragActive ? 'border-medical-primary bg-medical-primary/5 dark:bg-medical-primary/10' : 'border-slate-300 dark:border-neutral-700'} dark:bg-neutral-900/40`}
+        <div className={`glass-card p-10 flex flex-col items-center justify-center border-2 border-dashed transition-colors duration-150 ${dragActive ? 'border-medical-primary bg-medical-primary/5 dark:bg-medical-primary/10' : 'border-slate-300 dark:border-neutral-700'} dark:bg-neutral-900/40`}
             onDragEnter={handleDrag}
             onDragLeave={handleDrag}
             onDragOver={handleDrag}

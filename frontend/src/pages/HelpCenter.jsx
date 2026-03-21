@@ -25,7 +25,7 @@ const HelpCenter = () => {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto space-y-12 py-8 animate-fade-in transition-colors duration-300">
+    <div className="max-w-4xl mx-auto space-y-12 py-8 animate-fade-in transition-colors duration-150">
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-extrabold text-slate-800 dark:text-neutral-100 transition-colors">{t('common.help')}</h1>
         <p className="text-slate-500 dark:text-neutral-400 max-w-2xl mx-auto font-medium transition-colors">

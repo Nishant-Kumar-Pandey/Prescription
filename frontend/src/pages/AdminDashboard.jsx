@@ -46,7 +46,7 @@ const AdminDashboard = () => {
     };
 
     return (
-        <div className="space-y-8 animate-fade-in pb-12 transition-colors duration-300">
+        <div className="space-y-8 animate-fade-in pb-12 transition-colors duration-150">
             <div>
                 <h1 className="text-4xl font-black text-slate-800 dark:text-neutral-100 tracking-tight transition-colors">System Administration</h1>
                 <p className="text-slate-500 dark:text-neutral-400 font-medium transition-colors">Hospital network control center</p>
@@ -118,7 +118,7 @@ const AdminDashboard = () => {
                                             <div className="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <button
                                                     onClick={() => toggleBan(u._id, u.status)}
-                                                    className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-md active:scale-95 ${u.status === 'active' ? 'bg-amber-500 text-white hover:bg-amber-600' : 'bg-emerald-500 text-white hover:bg-emerald-600'
+                                                    className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors shadow-md active:scale-95 ${u.status === 'active' ? 'bg-amber-500 text-white hover:bg-amber-600' : 'bg-emerald-500 text-white hover:bg-emerald-600'
                                                         }`}
                                                 >
                                                     {u.status === 'active' ? 'Ban Access' : 'Restore'}
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
                                                 {u.role !== 'admin' && (
                                                     <button
                                                         onClick={() => fireUser(u._id)}
-                                                        className="px-4 py-2 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-red-700 shadow-md active:scale-95 transition-all"
+                                                        className="px-4 py-2 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-red-700 shadow-md active:scale-95 transition-colors"
                                                     >
                                                         Delete
                                                     </button>

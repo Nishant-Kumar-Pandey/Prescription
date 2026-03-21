@@ -8,9 +8,9 @@ const DoctorCard = ({ doctor, onBook }) => {
     return (
         <div className="group relative w-full">
             {/* Hover Glow Effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-medical-primary/40 to-medical-secondary/40 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-500 blur-xl"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-medical-primary/40 to-medical-secondary/40 rounded-[2rem] opacity-0 group-hover:opacity-100 transition duration-200 blur-xl"></div>
 
-            <div className="relative glass-card overflow-hidden border border-white/60 dark:border-white/10 bg-white/30 dark:bg-neutral-900/40 backdrop-blur-2xl transition-all duration-300 hover:border-medical-primary/30 dark:hover:border-medical-primary/50 rounded-[2rem] shadow-sm hover:shadow-xl">
+            <div className="relative glass-card overflow-hidden border border-white/60 dark:border-white/10 bg-white/30 dark:bg-neutral-900/40 backdrop-blur-2xl transition-colors duration-150 hover:border-medical-primary/30 dark:hover:border-medical-primary/50 rounded-[2rem] shadow-sm hover:shadow-xl">
                 <div className="flex flex-col sm:flex-row p-6 gap-6 items-center sm:items-stretch">
 
                     {/* Compact Image Holder */}
@@ -19,7 +19,7 @@ const DoctorCard = ({ doctor, onBook }) => {
                             <img
                                 src={doctor.image?.startsWith('http') ? doctor.image : `${IMAGE_BASE_URL}${doctor.image || ''}`}
                                 alt={doctor.name}
-                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-110"
                             />
                         </div>
                         {/* Compact Rating */}
@@ -61,7 +61,7 @@ const DoctorCard = ({ doctor, onBook }) => {
 
                         <button
                             onClick={() => onBook(doctor)}
-                            className="bg-slate-900 px-6 py-3.5 rounded-2xl shadow-lg active:scale-95 transition-all group/btn relative overflow-hidden flex items-center justify-center min-w-[120px]"
+                            className="bg-slate-900 px-6 py-3.5 rounded-2xl shadow-lg active:scale-95 transition-colors group/btn relative overflow-hidden flex items-center justify-center min-w-[120px]"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-medical-primary to-medical-secondary opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                             <span className="relative text-white font-black text-[10px] uppercase tracking-widest whitespace-nowrap">

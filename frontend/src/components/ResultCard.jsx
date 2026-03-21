@@ -18,7 +18,7 @@ const ResultCard = ({ result }) => {
     }
 
     return (
-        <div className="space-y-8 max-w-4xl mx-auto transition-colors duration-300">
+        <div className="space-y-8 max-w-4xl mx-auto transition-colors duration-150">
             {/* Analysis Header */}
             <div className="flex items-center gap-4 mb-8 bg-medical-primary/5 dark:bg-medical-primary/10 p-6 rounded-2xl border border-medical-primary/10 dark:border-white/5 relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-2">
@@ -73,7 +73,7 @@ const ResultCard = ({ result }) => {
             {/* Medicines List */}
             <div className="space-y-6">
                 {result.medicines?.map((med, index) => (
-                    <div key={index} className="glass-card p-8 space-y-6 relative overflow-hidden group hover:border-medical-primary/30 dark:hover:border-medical-primary/50 transition-all duration-300 bg-white/50 dark:bg-neutral-900/40 dark:border-white/5">
+                    <div key={index} className="glass-card p-8 space-y-6 relative overflow-hidden group hover:border-medical-primary/30 dark:hover:border-medical-primary/50 transition-colors duration-150 bg-white/50 dark:bg-neutral-900/40 dark:border-white/5">
                         <div className="absolute top-0 right-0 w-24 h-24 bg-medical-primary/5 dark:bg-medical-primary/10 rounded-bl-full -mr-8 -mt-8 opacity-50 group-hover:scale-110 transition-transform"></div>
 
                         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 relative z-10">

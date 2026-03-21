@@ -134,7 +134,7 @@ const AudioPlayer = ({ text }) => {
                     ) : (
                         <button
                             onClick={handleStop}
-                            className="bg-red-50 text-red-500 border border-red-100 px-8 py-3 rounded-xl font-extrabold flex items-center space-x-3 text-sm hover:bg-red-100 transition-all shadow-sm active:scale-95"
+                            className="bg-red-50 text-red-500 border border-red-100 px-8 py-3 rounded-xl font-extrabold flex items-center space-x-3 text-sm hover:bg-red-100 transition-colors shadow-sm active:scale-95"
                         >
                             <div className="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></div>
                             <span>{t('home.stop')}</span>

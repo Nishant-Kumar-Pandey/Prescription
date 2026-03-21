@@ -36,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto py-12 px-4 transition-colors duration-300">
+    <div className="max-w-md mx-auto py-12 px-4 transition-colors duration-150">
       <div className="glass-card p-10 space-y-8 animate-fade-in border border-white/40 dark:border-white/10 shadow-2xl bg-white/10 dark:bg-neutral-900/40 backdrop-blur-xl rounded-[2rem] transition-colors">
         <div className="text-center">
           <h2 className="text-4xl font-black text-slate-800 dark:text-neutral-100 tracking-tight transition-colors">{t('auth.welcome')}</h2>
@@ -57,7 +57,7 @@ const Login = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-neutral-200"
+              className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm font-medium text-slate-700 dark:text-neutral-200"
               placeholder="name@example.com"
             />
           </div>
@@ -69,7 +69,7 @@ const Login = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-neutral-200"
+              className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm font-medium text-slate-700 dark:text-neutral-200"
               placeholder="••••••••"
             />
           </div>
@@ -77,7 +77,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="btn-primary w-full py-4 text-xl font-black rounded-2xl shadow-xl active:scale-95 transition-all tracking-wide"
+            className="btn-primary w-full py-4 text-xl font-black rounded-2xl shadow-xl active:scale-95 transition-colors tracking-wide"
           >
             {loading ? t('common.loading') : t('auth.submitLogin')}
           </button>

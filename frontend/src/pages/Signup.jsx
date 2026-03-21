@@ -54,7 +54,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto py-12 px-4 transition-colors duration-300">
+    <div className="max-w-2xl mx-auto py-12 px-4 transition-colors duration-150">
       <div className="glass-card p-10 space-y-8 animate-fade-in border border-white/40 dark:border-white/10 shadow-2xl bg-white/10 dark:bg-neutral-900/40 backdrop-blur-xl rounded-[2rem] transition-colors">
         <div className="text-center">
           <h2 className="text-4xl font-black text-slate-800 dark:text-neutral-100 tracking-tight transition-colors">{t('auth.createAccount')}</h2>
@@ -78,7 +78,7 @@ const Signup = () => {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="Full Name"
               />
             </div>
@@ -91,7 +91,7 @@ const Signup = () => {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="email@example.com"
               />
             </div>
@@ -104,7 +104,7 @@ const Signup = () => {
                 required
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="••••••••"
               />
             </div>
@@ -115,7 +115,7 @@ const Signup = () => {
                 name="role"
                 value={formData.role}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm font-medium text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm font-medium text-slate-700 dark:text-neutral-200"
               >
                 <option value="patient">Patient</option>
                 <option value="doctor">Doctor</option>
@@ -131,7 +131,7 @@ const Signup = () => {
                 type="text"
                 value={formData.address}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="123 Medical St"
               />
             </div>
@@ -143,7 +143,7 @@ const Signup = () => {
                 type="text"
                 value={formData.city}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="New York"
               />
             </div>
@@ -155,7 +155,7 @@ const Signup = () => {
                 type="text"
                 value={formData.state}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="NY"
               />
             </div>
@@ -167,7 +167,7 @@ const Signup = () => {
                 type="text"
                 value={formData.country}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="United States"
               />
             </div>
@@ -179,7 +179,7 @@ const Signup = () => {
                 type="text"
                 value={formData.postalCode}
                 onChange={handleChange}
-                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                className="w-full bg-white/70 dark:bg-neutral-800/70 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                 placeholder="10001"
               />
             </div>
@@ -198,7 +198,7 @@ const Signup = () => {
                     required
                     value={formData.specialization}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                     placeholder="e.g. Cardiologist"
                   />
                 </div>
@@ -210,7 +210,7 @@ const Signup = () => {
                     required
                     value={formData.experience}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                     placeholder="12"
                   />
                 </div>
@@ -222,7 +222,7 @@ const Signup = () => {
                     required
                     value={formData.licenseNumber}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                    className="w-full bg-slate-50 dark:bg-neutral-800 border border-slate-200 dark:border-neutral-700 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-medical-primary/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                     placeholder="MC-XXXXXXX"
                   />
                 </div>
@@ -241,7 +241,7 @@ const Signup = () => {
                   required
                   value={formData.adminKey}
                   onChange={handleChange}
-                  className="w-full bg-amber-50/50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/30 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:bg-white dark:focus:bg-slate-800 transition-all shadow-sm text-slate-700 dark:text-neutral-200"
+                  className="w-full bg-amber-50/50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-900/30 rounded-2xl px-5 py-3.5 focus:outline-none focus:ring-2 focus:ring-amber-400/40 focus:bg-white dark:focus:bg-slate-800 transition-colors shadow-sm text-slate-700 dark:text-neutral-200"
                   placeholder="Enter your system admin passkey"
                 />
               </div>
@@ -251,7 +251,7 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading}
-            className="btn-primary w-full py-4 text-xl font-black rounded-2xl shadow-xl active:scale-95 transition-all disabled:opacity-50 disabled:active:scale-100"
+            className="btn-primary w-full py-4 text-xl font-black rounded-2xl shadow-xl active:scale-95 transition-colors disabled:opacity-50 disabled:active:scale-100"
           >
             {loading ? 'Creating Account...' : 'Complete Registration'}
           </button>

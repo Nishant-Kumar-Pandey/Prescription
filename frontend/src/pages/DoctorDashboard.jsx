@@ -125,13 +125,13 @@ const DoctorDashboard = () => {
                                                 <div className="flex justify-end gap-2">
                                                     <button
                                                         onClick={() => updateStatus(appt.id, 'completed')}
-                                                        className="px-4 py-2 bg-emerald-500 text-white text-xs font-black rounded-xl hover:bg-emerald-600 shadow-md active:scale-95 transition-all"
+                                                        className="px-4 py-2 bg-emerald-500 text-white text-xs font-black rounded-xl hover:bg-emerald-600 shadow-md active:scale-95 transition-colors"
                                                     >
                                                         Complete
                                                     </button>
                                                     <button
                                                         onClick={() => updateStatus(appt.id, 'canceled')}
-                                                        className="px-4 py-2 bg-red-500 text-white text-xs font-black rounded-xl hover:bg-red-600 shadow-md active:scale-95 transition-all"
+                                                        className="px-4 py-2 bg-red-500 text-white text-xs font-black rounded-xl hover:bg-red-600 shadow-md active:scale-95 transition-colors"
                                                     >
                                                         Cancel
                                                     </button>

@@ -39,7 +39,7 @@ const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
     };
 
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-300">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-150">
             <div className="w-full max-w-xl relative group">
                 <div className="absolute -top-12 -left-12 w-32 h-32 bg-medical-primary/20 blur-3xl animate-pulse"></div>
                 <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-medical-secondary/20 blur-3xl animate-pulse"></div>
@@ -92,7 +92,7 @@ const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
                                         <button
                                             key={time}
                                             onClick={() => setSelectedTime(time)}
-                                            className={`py-1 rounded-md border transition-all text-[9px] font-black ${selectedTime === time
+                                            className={`py-1 rounded-md border transition-colors text-[9px] font-black ${selectedTime === time
                                                 ? 'bg-slate-900 dark:bg-neutral-100 border-slate-900 dark:border-neutral-100 text-white dark:text-neutral-900 shadow-sm'
                                                 : 'bg-white dark:bg-neutral-800 border-slate-200 dark:border-neutral-700 text-slate-500 dark:text-neutral-400 hover:border-medical-primary/30 dark:hover:border-medical-primary/50'
                                                 }`}
@@ -105,7 +105,7 @@ const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
                                 <button
                                     onClick={handleConfirm}
                                     disabled={!selectedTime || isSubmitting}
-                                    className="w-full bg-medical-primary py-2 rounded-lg shadow-md hover:bg-medical-secondary active:scale-[0.98] disabled:opacity-50 transition-all font-black text-white text-[9px] uppercase tracking-widest"
+                                    className="w-full bg-medical-primary py-2 rounded-lg shadow-md hover:bg-medical-secondary active:scale-[0.98] disabled:opacity-50 transition-colors font-black text-white text-[9px] uppercase tracking-widest"
                                 >
                                     {isSubmitting ? "..." : <>{t('appointment.proceed')} ➜</>}
                                 </button>

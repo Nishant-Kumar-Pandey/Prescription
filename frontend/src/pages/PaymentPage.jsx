@@ -93,7 +93,7 @@ const PaymentPage = () => {
     if (!appointment) return null;
 
     return (
-        <div className="min-h-screen bg-slate-50/50 dark:bg-black/50 transition-colors duration-300 pb-20">
+        <div className="min-h-screen bg-slate-50/50 dark:bg-black/50 transition-colors duration-150 pb-20">
             {/* Simple Step Indicator */}
             <div className="bg-white/40 dark:bg-neutral-900/40 border-b border-white/60 dark:border-white/10 p-6 mb-12 backdrop-blur-md sticky top-[80px] z-40 transition-colors">
                 <div className="max-w-4xl mx-auto flex items-center justify-center gap-4">
@@ -128,7 +128,7 @@ const PaymentPage = () => {
                                     <button
                                         key={method.id}
                                         onClick={() => setSelectedMethod(method.id)}
-                                        className={`relative group p-6 rounded-[2rem] border-2 transition-all duration-300 text-left ${selectedMethod === method.id
+                                        className={`relative group p-6 rounded-[2rem] border-2 transition-colors duration-150 text-left ${selectedMethod === method.id
                                             ? 'bg-slate-900 dark:bg-neutral-100 border-slate-900 dark:border-neutral-100 shadow-[0_20px_40px_rgba(0,0,0,0.1)]'
                                             : 'bg-white/40 dark:bg-white/5 border-white dark:border-white/10 hover:border-medical-primary/30'
                                             }`}
@@ -161,7 +161,7 @@ const PaymentPage = () => {
                             <button
                                 onClick={handlePayment}
                                 disabled={loading}
-                                className="w-full relative group/btn overflow-hidden bg-medical-primary p-6 rounded-3xl shadow-xl active:scale-[0.98] transition-all"
+                                className="w-full relative group/btn overflow-hidden bg-medical-primary p-6 rounded-3xl shadow-xl active:scale-[0.98] transition-colors"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-medical-primary to-medical-secondary opacity-0 group-hover/btn:opacity-100 transition-opacity"></div>
                                 <span className="relative text-white font-black text-lg uppercase tracking-[0.3em] flex items-center justify-center gap-3">
@@ -225,7 +225,7 @@ const PaymentPage = () => {
                                 <div className="pt-4 flex justify-between items-end">
                                     <div>
                                         <p className="text-[10px] font-black text-medical-primary uppercase tracking-widest">Total Payable</p>
-                                        <p className="text-3xl font-black text-white leading-none mt-1 transition-all group-hover:scale-110 origin-left">₹{appointment.amount + 49}</p>
+                                        <p className="text-3xl font-black text-white leading-none mt-1 transition-colors group-hover:scale-110 origin-left">₹{appointment.amount + 49}</p>
                                     </div>
                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white border border-white/10">
                                         📄

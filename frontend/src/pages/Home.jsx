@@ -50,7 +50,7 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-12 py-8 transition-colors duration-300">
+    <div className="max-w-4xl mx-auto space-y-12 py-8 transition-colors duration-150">
       <div className="text-center space-y-4 animate-fade-in">
         <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-neutral-50 tracking-tight leading-tight transition-colors">
           {t('home.title').split(' ').map((word, i) => (
@@ -118,13 +118,13 @@ const Home = () => {
         <div className="space-y-6 pt-12 border-t border-slate-100 dark:border-neutral-800 animate-fade-in">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold text-slate-800 dark:text-neutral-100 transition-colors">{t('home.historyTitle')}</h3>
-            <Link to="/profile" className="text-medical-primary text-sm font-bold hover:underline transition-all">{t('home.viewAll')}</Link>
+            <Link to="/profile" className="text-medical-primary text-sm font-bold hover:underline transition-colors">{t('home.viewAll')}</Link>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
             {history.map((item, i) => (
               <div key={i}
                 onClick={() => setResult({ ...item, valid: true, ttsText: item.content })}
-                className="glass-card p-5 space-y-3 cursor-pointer hover:border-medical-primary/30 dark:hover:border-medical-primary/50 transition-all group bg-white/50 dark:bg-neutral-900/40 dark:border-white/5"
+                className="glass-card p-5 space-y-3 cursor-pointer hover:border-medical-primary/30 dark:hover:border-medical-primary/50 transition-colors group bg-white/50 dark:bg-neutral-900/40 dark:border-white/5"
               >
                 <div className="flex justify-between items-start">
                   <div className="w-10 h-10 bg-medical-primary/5 dark:bg-medical-primary/10 rounded-xl flex items-center justify-center text-medical-primary group-hover:bg-medical-primary group-hover:text-white transition-colors">

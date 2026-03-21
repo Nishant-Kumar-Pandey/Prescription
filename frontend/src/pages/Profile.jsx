@@ -120,7 +120,7 @@ const Profile = () => {
         </div>
         <p className="text-slate-500 dark:text-neutral-400 font-medium transition-colors">Upload a prescription or medical license to extract key information using our AI OCR.</p>
 
-        <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-neutral-700 rounded-3xl bg-slate-50/50 dark:bg-neutral-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
+        <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-slate-200 dark:border-neutral-700 rounded-3xl bg-slate-50/50 dark:bg-neutral-800/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <label className="btn-primary py-3 px-10 rounded-2xl font-bold cursor-pointer transition-transform active:scale-95">
             {analyzing ? 'Analyzing Image...' : 'Upload Image'}
             <input type="file" className="hidden" onChange={handleOcrAnalyze} accept="image/*" disabled={analyzing} />
@@ -176,7 +176,7 @@ const Profile = () => {
         ) : history.length > 0 ? (
           <div className="grid gap-6">
             {history.map((item) => (
-              <div key={item.id} className="glass-card p-6 flex flex-col sm:flex-row justify-between items-center hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all cursor-pointer border border-slate-200/50 dark:border-white/5 shadow-sm active:scale-[0.99] group bg-white/10 dark:bg-neutral-900/40">
+              <div key={item.id} className="glass-card p-6 flex flex-col sm:flex-row justify-between items-center hover:bg-white/80 dark:hover:bg-slate-800/80 transition-colors cursor-pointer border border-slate-200/50 dark:border-white/5 shadow-sm active:scale-[0.99] group bg-white/10 dark:bg-neutral-900/40">
                 <div className="flex items-center space-x-6 text-center sm:text-left">
                   <div className="w-14 h-14 bg-slate-50 dark:bg-neutral-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-neutral-700 group-hover:bg-medical-primary/5 dark:group-hover:bg-medical-primary/10 group-hover:border-medical-primary/20 transition-colors">
                     <svg className="w-7 h-7 text-slate-400 dark:text-neutral-500 group-hover:text-medical-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">

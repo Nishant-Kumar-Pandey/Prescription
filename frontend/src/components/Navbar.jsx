@@ -22,32 +22,32 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="glass-nav px-6 py-4 flex justify-between items-center sticky top-0 z-50 bg-white/70 dark:bg-neutral-900/80 backdrop-blur-xl border-b border-white/40 dark:border-neutral-800 shadow-sm transition-colors duration-300">
+      <nav className="glass-nav px-6 py-4 flex justify-between items-center sticky top-0 z-50 bg-white/70 dark:bg-neutral-900/80 backdrop-blur-xl border-b border-white/40 dark:border-neutral-800 shadow-sm transition-colors duration-150">
         <Link to="/" className="flex items-center gap-3">
           <img src="/logo.png" alt="RxExplain Logo" className="h-12 w-auto object-contain rounded-lg brightness-110 contrast-110" />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest">
+          <Link to="/" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest">
             {t('common.home')}
           </Link>
 
           {isAdmin ? (
-            <Link to="/admin" className="text-amber-600 hover:text-amber-700 transition-all font-black text-sm uppercase tracking-widest">
+            <Link to="/admin" className="text-amber-600 hover:text-amber-700 transition-colors font-black text-sm uppercase tracking-widest">
               Admin Dashboard
             </Link>
           ) : isDoctor ? (
-            <Link to="/doctor" className="text-blue-600 hover:text-blue-700 transition-all font-black text-sm uppercase tracking-widest">
+            <Link to="/doctor" className="text-blue-600 hover:text-blue-700 transition-colors font-black text-sm uppercase tracking-widest">
               Practice Hub
             </Link>
           ) : (
-            <Link to="/doctors" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest">
+            <Link to="/doctors" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest">
               {t('common.doctors')}
             </Link>
           )}
 
-          <Link to="/help" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest">
+          <Link to="/help" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest">
             {t('common.help')}
           </Link>
 
@@ -56,7 +56,7 @@ const Navbar = () => {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2.5 rounded-xl bg-slate-100 dark:bg-neutral-800 text-slate-600 dark:text-amber-400 hover:scale-110 active:scale-95 transition-all shadow-inner"
+            className="p-2.5 rounded-xl bg-slate-100 dark:bg-neutral-800 text-slate-600 dark:text-amber-400 hover:scale-110 active:scale-95 transition-colors shadow-inner"
             aria-label="Toggle Theme"
           >
             {theme === 'light' ? (
@@ -72,7 +72,7 @@ const Navbar = () => {
 
           {user ? (
             <div className="flex items-center space-x-6">
-              <Link to="/profile" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest">
+              <Link to="/profile" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest">
                 {t('common.profile')}
               </Link>
               <div className="flex items-center space-x-4 pl-4 border-l border-slate-200 dark:border-neutral-800">
@@ -82,7 +82,7 @@ const Navbar = () => {
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 bg-red-500/10 border border-red-500/20 text-red-600 text-xs font-black uppercase tracking-widest rounded-full hover:bg-red-500 hover:text-white transition-all shadow-sm active:scale-95"
+                  className="px-4 py-2 bg-red-500/10 border border-red-500/20 text-red-600 text-xs font-black uppercase tracking-widest rounded-full hover:bg-red-500 hover:text-white transition-colors shadow-sm active:scale-95"
                 >
                   {t('common.logout')}
                 </button>
@@ -90,10 +90,10 @@ const Navbar = () => {
             </div>
           ) : (
             <div className="flex items-center space-x-4">
-              <Link to="/login" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest">
+              <Link to="/login" className="text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest">
                 {t('common.login')}
               </Link>
-              <Link to="/signup" className="btn-primary py-2.5 px-6 rounded-full text-xs font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all">
+              <Link to="/signup" className="btn-primary py-2.5 px-6 rounded-full text-xs font-black uppercase tracking-widest shadow-lg active:scale-95 transition-colors">
                 {t('common.signup')}
               </Link>
             </div>
@@ -114,7 +114,7 @@ const Navbar = () => {
           </button>
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="p-2 text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-all"
+            className="p-2 text-slate-600 dark:text-neutral-400 hover:text-medical-primary transition-colors"
             aria-label="Open menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ const Navbar = () => {
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 text-slate-600 hover:text-red-500 transition-all"
+                className="p-2 text-slate-600 hover:text-red-500 transition-colors"
                 aria-label="Close menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +165,7 @@ const Navbar = () => {
               <Link
                 to="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-slate-600 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest py-2"
+                className="text-slate-600 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest py-2"
               >
                 {t('common.home')}
               </Link>
@@ -174,7 +174,7 @@ const Navbar = () => {
                 <Link
                   to="/admin"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-amber-600 hover:text-amber-700 transition-all font-black text-sm uppercase tracking-widest py-2"
+                  className="text-amber-600 hover:text-amber-700 transition-colors font-black text-sm uppercase tracking-widest py-2"
                 >
                   Admin Dashboard
                 </Link>
@@ -182,7 +182,7 @@ const Navbar = () => {
                 <Link
                   to="/doctor"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-blue-600 hover:text-blue-700 transition-all font-black text-sm uppercase tracking-widest py-2"
+                  className="text-blue-600 hover:text-blue-700 transition-colors font-black text-sm uppercase tracking-widest py-2"
                 >
                   Practice Hub
                 </Link>
@@ -190,7 +190,7 @@ const Navbar = () => {
                 <Link
                   to="/doctors"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-slate-600 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest py-2"
+                  className="text-slate-600 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest py-2"
                 >
                   {t('common.doctors')}
                 </Link>
@@ -199,7 +199,7 @@ const Navbar = () => {
               <Link
                 to="/help"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-slate-600 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest py-2"
+                className="text-slate-600 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest py-2"
               >
                 {t('common.help')}
               </Link>
@@ -208,7 +208,7 @@ const Navbar = () => {
                 <Link
                   to="/profile"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-slate-600 hover:text-medical-primary transition-all font-bold text-sm uppercase tracking-widest py-2"
+                  className="text-slate-600 hover:text-medical-primary transition-colors font-bold text-sm uppercase tracking-widest py-2"
                 >
                   {t('common.profile')}
                 </Link>
@@ -227,7 +227,7 @@ const Navbar = () => {
                       handleLogout();
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full px-4 py-3 bg-red-500/10 border border-red-500/20 text-red-600 text-sm font-black uppercase tracking-widest rounded-lg hover:bg-red-500 hover:text-white transition-all"
+                    className="w-full px-4 py-3 bg-red-500/10 border border-red-500/20 text-red-600 text-sm font-black uppercase tracking-widest rounded-lg hover:bg-red-500 hover:text-white transition-colors"
                   >
                     {t('common.logout')}
                   </button>
@@ -236,7 +236,7 @@ const Navbar = () => {
                     <Link
                       to="/login"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full px-4 py-3 text-center border border-medical-primary text-medical-primary text-sm font-black uppercase tracking-widest rounded-lg hover:bg-medical-primary hover:text-white transition-all"
+                      className="block w-full px-4 py-3 text-center border border-medical-primary text-medical-primary text-sm font-black uppercase tracking-widest rounded-lg hover:bg-medical-primary hover:text-white transition-colors"
                     >
                       {t('common.login')}
                     </Link>

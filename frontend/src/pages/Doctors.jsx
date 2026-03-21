@@ -85,7 +85,7 @@ const Doctors = () => {
                             placeholder={t('doctors.searchPlaceholder')}
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-white/50 dark:bg-neutral-800/50 border border-white/60 dark:border-white/5 rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:ring-4 focus:ring-medical-primary/10 focus:bg-white dark:focus:bg-slate-800 transition-all font-bold text-slate-700 dark:text-neutral-200"
+                            className="w-full bg-white/50 dark:bg-neutral-800/50 border border-white/60 dark:border-white/5 rounded-2xl pl-14 pr-6 py-4 focus:outline-none focus:ring-4 focus:ring-medical-primary/10 focus:bg-white dark:focus:bg-slate-800 transition-colors font-bold text-slate-700 dark:text-neutral-200"
                         />
                     </div>
                     <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
@@ -93,7 +93,7 @@ const Doctors = () => {
                             <button
                                 key={spec}
                                 onClick={() => setSelectedSpecialization(spec)}
-                                className={`px-5 py-3 rounded-xl border-2 font-black text-xs uppercase tracking-widest transition-all whitespace-nowrap active:scale-95 ${selectedSpecialization === spec
+                                className={`px-5 py-3 rounded-xl border-2 font-black text-xs uppercase tracking-widest transition-colors whitespace-nowrap active:scale-95 ${selectedSpecialization === spec
                                     ? 'bg-medical-primary text-white border-medical-primary shadow-lg ring-4 ring-medical-primary/10'
                                     : 'bg-white/50 dark:bg-neutral-800/50 text-slate-500 dark:text-neutral-400 border-white dark:border-white/5 hover:border-slate-200 dark:hover:border-slate-700'
                                     }`}
