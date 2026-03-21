@@ -75,6 +75,7 @@
         "title": "Book an Appointment",
         "selectDateTime": "Select Date & Time",
         "confirm": "Confirm Booking",
+        "proceed": "Proceed to Payment",
         "success": "Appointment Confirmed!",
         "successMessage": "Your appointment with {name} has been scheduled for {dateTime}."
     },
