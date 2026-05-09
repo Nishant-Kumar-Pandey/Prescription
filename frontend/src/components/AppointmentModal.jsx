@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { IMAGE_BASE_URL } from '@services/api';
 import { useLanguage } from '@context/LanguageContext';
 
@@ -38,7 +39,7 @@ const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
         }
     };
 
-    return (
+    return createPortal(
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-150">
             <div className="w-full max-w-xl relative group">
                 <div className="absolute -top-12 -left-12 w-32 h-32 bg-medical-primary/20 blur-3xl animate-pulse"></div>
@@ -114,7 +115,8 @@ const AppointmentModal = ({ doctor, onClose, onConfirm }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
 };
 
